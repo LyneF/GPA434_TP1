@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\Admin\Downloads\GPA434EzAppProject\GPA434EzAppProject\main.cpp(66,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Downloads\GPA434EzAppProject\GPA434EzAppProject\main.cpp(66,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+EzApp-d.lib(Application.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Application.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Keyboard.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Keyboard.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Screen.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Screen.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Timer.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Timer.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
+  GPA434EzAppProject.vcxproj -> C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\GPA434EzAppProject.exe
