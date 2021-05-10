@@ -69,5 +69,3 @@ void processDisplay(ezapp::Screen & screen) {
     // ...
 }
 
-
-

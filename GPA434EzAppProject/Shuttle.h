@@ -19,35 +19,7 @@ public:
 	void drawOnScreen(Screen& screen);
 	bool isColliding(const Asteroid& asteroid);
 
-
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #endif // _SHUTTLE_H_
