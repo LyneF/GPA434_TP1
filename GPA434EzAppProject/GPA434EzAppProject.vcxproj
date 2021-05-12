@@ -104,6 +104,7 @@
     <ClInclude Include="..\EzApp\header\PolygonUtilities.h" />
     <ClInclude Include="..\EzApp\header\Screen.h" />
     <ClInclude Include="..\EzApp\header\Timer.h" />
+    <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Shuttle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
