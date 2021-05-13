@@ -1,19 +1,28 @@
-#pragma once
 #ifndef _BODY_H_
 #define _BODY_H_
-// #include
+
+#include <EzApp>
+#include "Physics.h"
+#include "Polygon.h"
+
 
 class Body
 {
 private:
-	ezapp::Physics mPhysics{ };
-	ezapp::Polygon mShape{ };
+	Physics mPhysics{ };
+	Polygon mShape{ };
 
 public:
 	void reset();
 	void applyLinearAcceleration(Vect2D acceleration);
-	void 
+	void applyLinearAcceleration(float acceleration);
+	void applyAngularAcceleration(float acceleration);
+	void processTime(float elapsedTime);
+	void drawOnScreen(ezapp::Screen & screen);
+	bool isColliding(Body other); //ezapp: polygonUtilities intersectPolygon
 
 
 
 };
+
+#endif //_BODY_H_

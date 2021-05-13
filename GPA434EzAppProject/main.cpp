@@ -12,7 +12,8 @@
 //  - ezapp::Timer
 //  - ezapp::PolygonUtilities
 
-
+#include "Color.h"
+#include "Vect2D.h"
 
 // Déclaration des fonctions appelées à chaque pas de simulation. 
 // 
@@ -60,10 +61,19 @@ bool processEvents(ezapp::Keyboard const & keyboard, ezapp::Timer const & timer)
 }
 
 void processDisplay(ezapp::Screen & screen) {
+    Color myColor(0.0f, 0.45f, 0.0f, 1.0f);
+    Vect2D t1(1.0, 5.0), t2;
+    t1.normalize();
+
+    double phaseR{ sin(globalTime * 3.1415) * 0.5 + 0.5 };
+    double phaseB{ cos(globalTime * 3.1415) * 0.5 + 0.5 };
+    myColor.setRed(phaseR);
+    myColor.setBlue(phaseB);
+
+
     // Define background color and apply it
-    double phaseR{ sin(globalTime * 3.1415) * 0.5 + 0.5};
-    double phaseB{ cos(globalTime * 3.1415) * 0.5 + 0.5};
-    screen.setBrush(phaseR, 0.45f, phaseB, 1.0f); // opaque medium dark blue grey
+    //screen.setBrush(myColor.red(), myColor.green(), myColor.blue(), myColor.alpha()); // opaque medium dark blue grey
+    myColor.setBrush(screen);
     screen.clear();                             // apply color all over the screen
 
     // ...

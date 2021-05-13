@@ -1,18 +1,21 @@
 #pragma once
 #ifndef _GAMEENGINE_H_
 #define _GAMEENGINE_H_
-// #include
+
+#include "Shuttle.h"
+#include <vector>
+#include <ezapp>
 
 class GameEngine
 {
 private:
-	ezapp::Shuttle mShuttle{ };
+	Shuttle mShuttle{ };
 	vector mAsteroid;
 	vector mMissiles;
 
 public:
-	bool provessEvents(const Keyboard& keyboard, const Timer& timer);
-	void processDispaly(Screen &screen);
+	bool provessEvents(const ezapp::Keyboard& keyboard, const ezapp::Timer& timer);
+	void processDispaly(ezapp::Screen &screen);
 
 
 

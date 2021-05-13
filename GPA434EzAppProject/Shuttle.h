@@ -2,12 +2,13 @@
 #ifndef _SHUTTLE_H_
 #define _SHUTTLE_H_
 
-// #include
+#include "Body.h"
+#include <ezapp>
 
 class Shuttle
 {
 private:
-	ezapp::Body mBody{ };
+	Body mBody{ };
 	float mLinearThrustPower{ },
 		mAngularThrustPower{ },
 		mLinearTraveledDistance{ },
