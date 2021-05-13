@@ -96,7 +96,14 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Body.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="ShapeColors.cpp" />
+    <ClCompile Include="Shuttle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\EzApp\header\Application.h" />
@@ -106,9 +113,14 @@
     <ClInclude Include="..\EzApp\header\Timer.h" />
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Body.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="Missile.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="Polygon.h" />
+    <ClInclude Include="ShapeColors.h" />
     <ClInclude Include="Shuttle.h" />
+    <ClInclude Include="Vect2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

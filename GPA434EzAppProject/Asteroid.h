@@ -2,20 +2,22 @@
 #ifndef _ATEROID_H_
 #define _ASTEROID_H_
 
-// #include
+#include <EzApp>
+#include "Body.h"
 
-class asteroid
+class Asteroid
 {
 private:
-	ezapp::Body mBody{ };
+	Body mBody{ };
 	
 
 public:
 	float processTime(float elapsedTime);
-	void drawOnScreen(Screen &screen);
+	void drawOnScreen(ezapp::Screen &screen);
 
 
 
 
 };
 
+#endif //_ASTEROID_H_
