@@ -2,12 +2,14 @@
 #ifndef _MISSILE_H
 #define _MISSILE_H
 
-// #include
+#include <ezapp>
+#include "Body.h"
+
 
 class Missile
 {
 private:
-	ezapp::Body mBody{ };
+	Body mBody{ };
 	float mFuelLevel{ },
 		  mThrustPower{ };	
 
@@ -23,3 +25,4 @@ public:
 
 };
 
+#endif //_MISSILE_H_

@@ -4,3 +4,7 @@ bool GameEngine::provessEvents(const ezapp::Keyboard& keyboard, const Timer& tim
 {
 	return false;
 }
+
+void GameEngine::processDispaly(ezapp::Screen& screen)
+{
+}

@@ -42,19 +42,46 @@ void Physics::applyAngularAcceleration(float acceleration)
 void Physics::processTime(float elapsedTime)
 {
 	//pour gérer le départ du jeu en position de départ et à vitesse nulle
-	//if (temps = 0) {
-	//	formule de newton avec position initiale et vitesse nulle
-	//position
-	mLinearPosition.x = mLinearVelocity.x
-	mLinearPosition.y = mLinearVelocity.y
-	//vitesse
+	if (elapsedTime = 0) {
+	//position linéaire
+		//TO DO: gérer les t-1???
+		mLinearPosition.x = mLinearVelocity.x * elapsedTime + 0.5 * mLinearAcceleration.x * elapsedTime * elaspedTime
+		mLinearPosition.y = mLinearVelocity.y * elapsedTime + 0.5 * mLinearAcceleration.y * elapsedTime * elaspedTime
+
+		//vitesse linéaire
+		//TO DO: gérer les t-1???
+		mLinearVelocity.x = mLinearAcceleration.x * elapsedTime;
+		mLinearVelocity.y = mLinearAcceleration.y * elapsedTime;
+
+		//position angulaire
+		//TO DO: gérer les t-1???
+		mAngularPosition = mAngularVelocity * elapsedTime + 0.5 * mAngularAcceleration * elapsedTime * elaspedTime
+			
+		//vitesse angulaire
+		//TO DO: gérer les t-1???
+		mAngularVelocity = mAngularVelocity + mAngularAcceleration * elapsedTime;
+		
 	}
 //pour gérer le reste du jeu selon la position précedente et la vitesse précédente
 	else {
-	//formules de Newton
-	//position
-	mLinearPosition = mLinearPosition
-	
-	//vitesse	
+		//formules de Newton
+		//TO DO: gérer les t-1???
+		//position linéaire
+		mLinearPosition.x = mLinearPosition.x + mLinearVelocity.x * elapsedTime + 0.5 * mLinearAcceleration.x * elapsedTime * elaspedTime
+		mLinearPosition.y = mLinearPosition.y +  mLinearVelocity.y * elapsedTime + 0.5 * mLinearAcceleration.y * elapsedTime * elaspedTime
+
+		//vitesse linéaire
+		//TO DO: gérer les t-1???
+		mLinearVelocity.x = mLinearVelocity.x + mLinearAcceleration.x * elapsedTime;
+		mLinearVelocity.y = mLinearVelocity.y + mLinearAcceleration.y * elapsedTime;
+
+
+		//position angulaire
+		//TO DO: gérer les t-1???
+		mAngularPosition = mAngularPosition + mAngularVelocity * elapsedTime + 0.5 * mAngularAcceleration * elapsedTime * elaspedTime
+
+		//vitesse angulaire
+		//TO DO: gérer les t-1???
+		mAngularVelocity = mAngularVelocity + mAngularAcceleration * elapsedTime;
 	}
 }
