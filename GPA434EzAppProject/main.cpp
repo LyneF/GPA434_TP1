@@ -14,20 +14,32 @@
 
 #include "Color.h"
 #include "Vect2D.h"
-
-// Déclaration des fonctions appelées à chaque pas de simulation. 
-// 
-// Cette fonction a pour objectif de faire les traitements liés à la simulation 
-// selon les évènements au clavier et le temps écoulé.
-bool processEvents(ezapp::Keyboard const & keyboard, ezapp::Timer const & timer);
-// 
-// Cette fonction a pour objectif de faire l'affichage de la simulation à l'écran.
-void processDisplay(ezapp::Screen & screen);
-
+#include "Polygon.h"
+#include "GameEngine.h"
+#include <iostream>
 
 // Fonction correspondant au point d'entré du programme.
 int WinMain() 
 {
+    //Vect2D v1, v2(1.0f, 2.0f), v3(-1.0f, 0.5f), v4;
+    ////v1 = v4.add(v2.add(v3));
+    //v1 = v4 - v2 + v3;
+    //v1 = v2 * 2.0f;
+    //v1 = v2 / 2.0f;
+    //v1 = -v2;
+    //bool test{ v1 == v2 };
+    //bool test2{ v1 != v2 };
+    //v1 += v2;
+
+    //v1 = v2 + v3;
+    //v1 = v3 + v2;
+    //v1 = v2 * 5.0f;
+    //v1 = 5.0f * v2;
+    //std::cout << v1 << v2 << v3;
+
+    //std::string s;
+    //s = v1.toString();
+
     // Define default parameters
     size_t const windowWidth{ 1200 };
     size_t const windowHeight{ 1000 };
@@ -39,8 +51,10 @@ int WinMain()
     ezapp::Application::Parameters param(windowWidth, windowHeight, title, iconFilename, fontFilename);
     ezapp::Application app(param);
 
+    GameEngine game;
+
     // Run application
-    app.run(processEvents, processDisplay);
+    app.run(game, &GameEngine::processEvents, &GameEngine::processDisplay);
 
     // End the program
     return 0;
@@ -51,31 +65,6 @@ double globalTime{};
 #include <cmath>
 
 
-bool processEvents(ezapp::Keyboard const & keyboard, ezapp::Timer const & timer) {
-    // ...
-    double accelerate{ keyboard.isKeyPressed(ezapp::Keyboard::Key::Space) ? 10.0 : 1.0 };
-    globalTime += timer.secondSinceLastTic() * accelerate;
-
-    // run until ESCAPE is pressed
-    return !keyboard.isKeyPressed(ezapp::Keyboard::Key::Escape);
-}
-
-void processDisplay(ezapp::Screen & screen) {
-    Color myColor(0.0f, 0.45f, 0.0f, 1.0f);
-    Vect2D t1(1.0, 5.0), t2;
-    t1.normalize();
-
-    double phaseR{ sin(globalTime * 3.1415) * 0.5 + 0.5 };
-    double phaseB{ cos(globalTime * 3.1415) * 0.5 + 0.5 };
-    myColor.setRed(phaseR);
-    myColor.setBlue(phaseB);
 
 
-    // Define background color and apply it
-    //screen.setBrush(myColor.red(), myColor.green(), myColor.blue(), myColor.alpha()); // opaque medium dark blue grey
-    myColor.setBrush(screen);
-    screen.clear();                             // apply color all over the screen
-
-    // ...
-}
 

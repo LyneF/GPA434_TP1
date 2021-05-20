@@ -1,8 +1,10 @@
-﻿  main.cpp
-C:\Users\Admin\Downloads\GPA434EzAppProject\GPA434EzAppProject\main.cpp(66,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Downloads\GPA434EzAppProject\GPA434EzAppProject\main.cpp(66,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-EzApp-d.lib(Application.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Application.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
-EzApp-d.lib(Keyboard.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Keyboard.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
-EzApp-d.lib(Screen.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Screen.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
-EzApp-d.lib(Timer.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Timer.obj)' or at 'C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\EzApp.pdb'; linking object as if no debug info
-  GPA434EzAppProject.vcxproj -> C:\Users\Admin\Downloads\GPA434EzAppProject\x64\Debug\GPA434EzAppProject.exe
+﻿  GameEngine.cpp
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(9,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(10,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(23,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(24,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Polygon.cpp
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  GPA434EzAppProject.vcxproj -> C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\GPA434EzAppProject.exe

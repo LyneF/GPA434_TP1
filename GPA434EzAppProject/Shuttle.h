@@ -2,8 +2,11 @@
 #ifndef _SHUTTLE_H_
 #define _SHUTTLE_H_
 
-#include "Body.h"
 #include <ezapp>
+#include "Body.h"
+#include "GameEngine.h"
+#include "Asteroid.h"
+
 
 class Shuttle
 {
@@ -15,9 +18,9 @@ private:
 		mAngularTraveledDistance{ };
 
 public:
-	void control(const Keyboard &keyboard, GameEngine &gameEngine);
+	void control(const ezapp::Keyboard &keyboard, GameEngine &gameEngine);
 	void processTime(float elapsedTime);
-	void drawOnScreen(Screen& screen);
+	void drawOnScreen(ezapp::Screen& screen);
 	bool isColliding(const Asteroid& asteroid);
 
 };

@@ -19,10 +19,11 @@ public:
 	void applyAngularAcceleration(float acceleration);
 	void processTime(float elapsedTime);
 	void drawOnScreen(ezapp::Screen & screen);
+
+
+
+	//Vérifier si les positions de l'astéro et du body other sont pareilles
 	bool isColliding(Body other); //ezapp: polygonUtilities intersectPolygon
-
-
-
 };
 
 #endif //_BODY_H_

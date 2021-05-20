@@ -4,6 +4,7 @@
 
 #include <ezapp>
 #include "Body.h"
+#include "Asteroid.h"
 
 
 class Missile
@@ -16,7 +17,7 @@ private:
 
 public:
 	float processTime(float elapsedTime);
-	void drawOnScreen(Screen& screen);
+	void drawOnScreen(ezapp::Screen& screen);
 	bool isColliding(const Asteroid& asteroid);
 
 

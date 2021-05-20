@@ -11,8 +11,11 @@ private:
 	float mX, mY;// pour EzApp
 
 public:
-	Vect2D() : Vect2D(0.0f, 0.0f) {}
+	Vect2D() 
+		: Vect2D(0.0f, 0.0f) {}
+
 	Vect2D(float x, float y) : mX{ x }, mY{ y } {}
+
 	~Vect2D() {} // ne fait rien
 
 	// Accesseurs
@@ -25,6 +28,7 @@ public:
 	void setX(float x) { mX = x; }
 	void setY(float y) { mY = y; }
 	void set(float x, float y) { setX(x); setY(y); }
+	void reset() { setX(0.0f); setY(0.0f); }
 
 	// Representation polaire
 	// Accesseurs
@@ -63,6 +67,31 @@ public:
 	// void randomizeY(float minValue = 0.0f, float maxValue = 1.0f);
 	// void randomize(float minValue = 0.0f, float maxValue = 1.0f);
 	// void randomize(float minXValue = 0.0f, float maxXValue = 1.0f, float minYValue = 0.0f, float maxYValue = 1.0f);
+
+	// Opérateurs
+	// lhs => left hand side
+	// rhs => right hand side
+	// lhs + rhs
+	Vect2D operator-() const { return Vect2D(-mX, -mY); }
+
+	Vect2D operator+(Vect2D const& rhs) const { return Vect2D(mX + rhs.mX, mY + rhs.mY); }
+	Vect2D operator-(Vect2D const& rhs) const { return Vect2D(mX - rhs.mX, mY - rhs.mY); }
+
+	Vect2D operator*(float rhs) const { return Vect2D(mX * rhs, mY * rhs); }
+	Vect2D operator/(float rhs) const { return Vect2D(mX / rhs, mY / rhs); }// la division par zéro doit être gérée à l'extérieur
+
+
+	bool operator==(Vect2D const& rhs) const { return mX == rhs.mX && mY == rhs.mY; }
+	bool operator!=(Vect2D const& rhs) const { return mX != rhs.mX || mY != rhs.mY; }
+	//bool operator!=(Vect2D const& rhs) const { return !(*this == rhs); }
+	//bool operator!=(Vect2D const& rhs) const { return !operator==(rhs); }
+
+	Vect2D& operator+=(Vect2D const& rhs) { mX += rhs.mX; mY += rhs.mY; return *this; }
+	Vect2D& operator-=(Vect2D const& rhs) { mX -= rhs.mX; mY -= rhs.mY; return *this; }
+	Vect2D operator+=(float const& rhs) const { return Vect2D(mX + rhs, mY + rhs); }
+	Vect2D& operator*=(float rhs) { mX *= rhs; mY *= rhs; return *this; }
+	Vect2D& operator/=(float rhs) { mX /= rhs; mY /= rhs; return *this; }
+
 };
 
 

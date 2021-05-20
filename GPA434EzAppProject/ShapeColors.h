@@ -14,8 +14,9 @@ private:
 
 
 public:
-	//set et get
-
+	void setBrushColor(float color);
+	void setPenColor(float color);
+	void setPenWidth(float width);
 };
 
 #endif //SHAPECOLORS_H
