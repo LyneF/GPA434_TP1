@@ -8,7 +8,10 @@ GameEngine::GameEngine()
     mPentagonOrientation{},
     mPentagonSize{ 2.0f }
 {
-    mPentagon.buildCircle(20.0f, 30);
+   // mPentagon.buildCircle(20.0f, 30);
+  //  mPentagon.buildRectangle(30.0f, 10);
+   // mPentagon.buildTriangle(20.0f, 30);
+    mPentagon.buildVessel(30.0f, 15.0f, 20.0f, 30);
 }
 
 GameEngine::~GameEngine()

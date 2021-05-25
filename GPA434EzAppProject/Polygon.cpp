@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <algorithm>
+#include "Screen.h"
 
 
 //Écran: 1024 * 768
@@ -82,8 +83,55 @@ void Polygon::buildCircle(float radius, size_t resolution)
 	buildRegular(resolution, radius);
 }
 
+void Polygon::buildVessel(float width, float height, float radius, size_t resolution)
+{
+	//pourquoi il dessine seulement la dernière forme demandée???--> dans draw, l'appeler plusieurs fois?
+
+	//Création des 4 cercles composants la forme du vaisseau
+	//-->Cercle principal
+	//draw(screen.drawPolygon(x, y, rotation, scale);
+	buildRegular(resolution, radius);
+
+	//-->Petits cercles sous le vaisseau
+	//Il faut décaler leur centre
+	//draw(screen.drawPolygon(x, y, rotation, scale);
+	buildRegular(resolution, radius/5.0f);
+	//draw(screen.drawPolygon(x, y, rotation, scale);
+	buildRegular(resolution, radius / 5.0f);
+	//draw(screen.drawPolygon(x, y, rotation, scale);
+	buildRegular(resolution, radius / 5.0f);
+
+	
+	//Création de la base du vaisseau
+	mVertices.resize(9);
+	mVertices[0].set(-width / 4.0f, 0.0f);
+	mVertices[1].set((-width / 2.0f)+1.0f, -height / 4.0f);
+	mVertices[2].set(-width / 2.0f, (-height /2.0f) + 1.5f);
+	mVertices[3].set((-width / 4.0f)+1.0f, (-height / 2.0f)-3.5f);
+	mVertices[4].set(0.0f,(-height / 2.0f)-5.0f);
+	mVertices[5].set((width / 5.0f) + 1.0f, (-height / 2.0f)-3.5f);
+	mVertices[6].set(width / 2.0f, (-height / 2.0f) + 1.5f);
+	mVertices[7].set((width / 2.0f) + 1.0f, -height / 4.0f);
+	mVertices[8].set(width / 4.0f, 0.0f);
+	
+}
+
+void Polygon::buildTriangle(float width, float height)
+{
+	mVertices.resize(3);
+	mVertices[0].set(-width / 2.0f, -height / 2.0f);
+	mVertices[1].set(width / 2.0f, -height / 2.0f);
+	mVertices[2].set(0.0f, height / 2.0f);
+}
+
 void Polygon::draw(ezapp::Screen& screen, float x, float y, float rotation, float scale)
 {
 	screen.setPolygonVertices(mVertices);
 	screen.drawPolygon(x, y, rotation, scale);
+	
+	//pour dessiner les 5 polygones au total, avec un tab?
+	/*screen.drawPolygon(x, y, rotation, scale);
+	screen.drawPolygon(x, y, rotation, scale);
+	screen.drawPolygon(x, y, rotation, scale);
+	screen.drawPolygon(x, y, rotation, scale);*/
 }

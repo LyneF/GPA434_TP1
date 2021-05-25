@@ -30,7 +30,8 @@ public:
 	void buildRectangle(float width, float height);
 	void buildRegular(size_t numberOfSides, float circumbscribedRadius);
 	void buildCircle(float radius, size_t resolution = 16);
-	//void buildVessel(float radius);
+	void buildVessel(float width, float height, float radius, size_t resolution = 16);
+	void buildTriangle(float width, float height);
 	
 	//void buildStar(size_t numberOfSpikes, float circumbscribedRadius);
 
