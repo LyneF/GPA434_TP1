@@ -1,3 +1,17 @@
 ﻿  Polygon.cpp
-C:\Users\lamvie\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
-  GPA434EzAppProject.vcxproj -> C:\Users\lamvie\Documents\GitHub\GPA434_TP1\x64\Debug\GPA434EzAppProject.exe
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(134,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(133,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(136,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(135,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(138,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(137,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(140,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(139,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(142,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(141,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+EzApp-d.lib(Application.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Application.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Keyboard.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Keyboard.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Screen.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Screen.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Timer.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Timer.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+  GPA434EzAppProject.vcxproj -> C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\GPA434EzAppProject.exe

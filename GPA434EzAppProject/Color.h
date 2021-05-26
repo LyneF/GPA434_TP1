@@ -10,6 +10,7 @@
 //   g
 //   b
 //   a
+
 class Color
 {
 private:
@@ -39,7 +40,7 @@ public:
 
 
 	// Lien avec la librairie EzApp
-	void setPen(ezapp::Screen& screen);
+	void setPen(ezapp::Screen& screen, float width);
 	void setBrush(ezapp::Screen& screen);
 
 };

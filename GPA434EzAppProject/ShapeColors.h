@@ -14,8 +14,13 @@ private:
 
 
 public:
-	void setBrushColor(float color);
-	void setPenColor(float color);
+
+	//Constructeurs
+	ShapeColors();
+	~ShapeColors();
+
+	void setBrushColor(ezapp::Screen& screen, float red, float green, float blue, float alpha = 1.0f);
+	void setPenColor(ezapp::Screen& screen, float red, float green, float blue, float alpha = 1.0f);
 	void setPenWidth(float width);
 };
 

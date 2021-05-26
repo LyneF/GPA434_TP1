@@ -38,9 +38,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\EzApp\header\Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\EzApp\header\Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ShapeColors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EzApp\header\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

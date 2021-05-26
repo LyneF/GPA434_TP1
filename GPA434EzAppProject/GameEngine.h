@@ -5,6 +5,7 @@
 #include "Color.h"
 #include "Vect2D.h"
 #include "Polygon.h"
+#include "ShapeColors.h"
 
 
 class GameEngine

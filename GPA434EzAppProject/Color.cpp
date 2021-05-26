@@ -75,9 +75,10 @@ void Color::randomize(bool randomizeAlpha)
 	mAlpha = randomizeAlpha ? (float)rand() / RAND_MAX : 1.0f;
 }
 
-void Color::setPen(ezapp::Screen& screen)
+//On ne devrait pas les voir plus loin?? Genre dans polygon.h
+void Color::setPen(ezapp::Screen& screen, float width)
 {
-	screen.setPen(mRed, mGreen, mBlue, mAlpha);
+	screen.setPen(mRed, mGreen, mBlue, mAlpha, width);
 }
 
 void Color::setBrush(ezapp::Screen& screen)
