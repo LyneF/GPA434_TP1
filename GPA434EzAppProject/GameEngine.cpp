@@ -1,10 +1,11 @@
 #include "GameEngine.h"
 
+
 GameEngine::GameEngine()
     :mTime{ 0.0f },
     mPentagon(),
-    mFillColor(1.0f, 1.0f, 0.0f, 1.0f),
-    mOutlineColor(1.0f, 0.5f, 0.0f, 1.0f),
+    mFillColor(SCREEN, 1.0f),
+    mOutlineColor(BORDER, 1.0f),
     mPentagonPosition(0.0f, 450.0f),
     mPentagonOrientation{},
     mPentagonSize{ 2.0f }
@@ -12,8 +13,7 @@ GameEngine::GameEngine()
     // mPentagon.buildCircle(20.0f, 30);
     // mPentagon.buildRectangle(30.0f, 10);
     // mPentagon.buildTriangle(20.0f, 30);
-    // mPentagon.buildVessel(30.0f, 15.0f, 20.0f, 30);
-    mPentagon.buildVessel(30.0f);
+    mPentagon.buildVessel(15.0f, 25.0f);
 }
 
 GameEngine::~GameEngine()
@@ -34,8 +34,8 @@ bool GameEngine::processEvents(ezapp::Keyboard const& keyboard, ezapp::Timer con
 
 void GameEngine::processDisplay(ezapp::Screen& screen) {
     //What is this mess?
-    //c'est la couleur de quel objet qui est définie? De lécran?? Du polygone?
-    Color myColor(0.0f, 0.45f, 0.0f, 1.0f);
+    //c'est la couleur de quel objet qui est définie? De l'écran?? Du polygone?
+    Color myColor(0x007300, 1.0f);
     Vect2D t1(1.0, 5.0), t2;        //C'est quoi ce vecteur??
     t1.normalize();
 
@@ -52,14 +52,15 @@ void GameEngine::processDisplay(ezapp::Screen& screen) {
     // ...
    
     ShapeColors screenColor;
-    screenColor.setBrushColor(screen, 1.0f, 1.0f, 0.0f, 1.0f);
-    screenColor.setPenColor(screen, 1.0f, 0.5f, 0.0f, 1.0f);
+    screenColor.setBrushColor(screen, SCREEN, 1.0f);
+    screenColor.setPenColor(screen, BORDER, 1.0f);
  //   fillColor.setBrush(screen);
  //   outlineColor.setPen(screen, );
     
-    mPentagon.setBrushColor(screen, 0.21f, 0.63f, 0.88f, 1.0f);
-    mPentagon.setPenColor(screen, 0.26f, 0.11f, 0.63f, 1.0f);
-    mPentagon.draw(screen, mPentagonPosition.x(), mPentagonPosition.y(), mPentagonOrientation, mPentagonSize);
+    mPentagon.setBrushColor(screen, VESSEL, 1.0f);
+    mPentagon.setPenColor(screen, BLACK, 1.0f);
+    mPentagon.draw(screen, mPentagonPosition.x(), mPentagonPosition.y(),
+                    mPentagonOrientation, mPentagonSize);
 
 }
 

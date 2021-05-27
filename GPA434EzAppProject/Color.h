@@ -1,9 +1,13 @@
 #ifndef COLOR_H
 #define COLOR_H
 
+enum Colors {
+	RED = 0xFF0000, GREEN = 0x00FF00, BLUE = 0x0000FF,
+	VESSEL = 0x7F7FFF, BLACK = 0xFFFFFF, WHITE = 0x000000,
+	SCREEN = 0xFFFF00, BORDER = 0xFF7F00
+};
 
 #include <EzApp>
-
 
 // Classe représentant la couleur avec ses 4 valeurs normalisées 0.0-1.0.
 //   r
@@ -16,9 +20,12 @@ class Color
 private:
 	float mRed, mGreen, mBlue, mAlpha;
 
+	//Fonction pour convertir la couleur en hex
+	void convertColor(unsigned color);
+
 public:
 	Color();
-	Color(float red, float green, float blue, float alpha = 1.0f);
+	Color(unsigned color, float alpha = 1.0f);
 	~Color();
 
 	// Accesseurs
@@ -32,7 +39,7 @@ public:
 	void setGreen(float green);
 	void setBlue(float blue);
 	void setAlpha(float alpha);
-	void setColor(float red, float green, float blue, float alpha = 1.0f);
+	void setColor(unsigned color, float alpha = 1.0f);
 
 	// Fonctions utilitaires
 	void randomize(bool randomizeAlpha = false);
@@ -44,8 +51,5 @@ public:
 	void setBrush(ezapp::Screen& screen);
 
 };
-
-
-
 
 #endif // COLOR_H

@@ -1,9 +1,8 @@
 #include "ShapeColors.h"
 
-
 ShapeColors::ShapeColors()
-	:mBrushColor(0.0f, 0.5f, 0.0f, 1.0f),
-	mPenColor(0.0f, 0.0f, 0.5f, 1.0f),
+	:mBrushColor(WHITE),
+	mPenColor(BLACK),
 	mPenWidth{ 0.5f }
 {
 }
@@ -12,15 +11,15 @@ ShapeColors::~ShapeColors()
 {
 }
 
-void ShapeColors::setBrushColor(ezapp::Screen& screen, float red, float green, float blue, float alpha)
+void ShapeColors::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
-	mBrushColor.setColor(red, green, blue, alpha);
+	mBrushColor.setColor(color, alpha);
 	mBrushColor.setBrush(screen);
 }
 
-void ShapeColors::setPenColor(ezapp::Screen& screen, float red, float green, float blue, float alpha)
+void ShapeColors::setPenColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
-	mPenColor.setColor(red, green, blue, alpha);
+	mPenColor.setColor(color, alpha);
 	mPenColor.setPen(screen, mPenWidth);
 }
 

@@ -1,10 +1,7 @@
 #include "Polygon.h"
-
-
 #include <cmath>
 #include <algorithm>
 #include "Screen.h"
-
 
 //Écran: 1024 * 768
 
@@ -51,14 +48,14 @@ void Polygon::setVertices(std::vector<Vect2D> const& vertices)
 	}
 }
 
-void Polygon::setBrushColor(ezapp::Screen& screen, float red, float green, float blue, float alpha)
+void Polygon::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
-	mShapeColors.setBrushColor(screen, red, green, blue, alpha);
+	mShapeColors.setBrushColor(screen, color, alpha);
 }
 
-void Polygon::setPenColor(ezapp::Screen& screen, float red, float green, float blue, float alpha)
+void Polygon::setPenColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
-	mShapeColors.setPenColor(screen, red, green, blue, alpha);
+	mShapeColors.setPenColor(screen, color, alpha);
 }
 
 void Polygon::buildSquare(float length)
@@ -94,7 +91,7 @@ void Polygon::buildCircle(float radius, size_t resolution)
 	buildRegular(resolution, radius);
 }
 
-void Polygon::buildVessel(float circumbscribedRadius)
+void Polygon::buildVessel(float width, float height)
 {
 	/*
 	* 
@@ -129,17 +126,28 @@ void Polygon::buildVessel(float circumbscribedRadius)
 		mVertices[8].set(width / 4.0f, 0.0f);
 	*/
 
-	mVertices.resize(5);
-	mVertices[0].set(std::cos(180) * circumbscribedRadius,
-					std::sin(180) * circumbscribedRadius);
-	mVertices[1].set(std::cos(70) * circumbscribedRadius,
-					std::sin(70) * circumbscribedRadius);
-	mVertices[2].set(std::cos(70) * circumbscribedRadius,
-					std::sin(70) * circumbscribedRadius);
-	mVertices[3].set(std::cos(40) * circumbscribedRadius,
-					std::sin(40) * circumbscribedRadius);
-	mVertices[4].set(std::cos(40) * circumbscribedRadius,
-					std::sin(40) * circumbscribedRadius);
+	/*	Vaisseau = triangle qui shoot
+		mVertices.resize(7);
+		mVertices[0].set(0, circumbscribedRadius/2);
+		mVertices[1].set(-circumbscribedRadius / 3, 0);
+		mVertices[2].set(-circumbscribedRadius / 10, circumbscribedRadius / 10);
+		mVertices[3].set(-circumbscribedRadius / 7, -circumbscribedRadius / 7);
+		mVertices[4].set(circumbscribedRadius / 7, -circumbscribedRadius / 7);
+		mVertices[5].set(circumbscribedRadius / 10, circumbscribedRadius / 10);
+		mVertices[6].set(circumbscribedRadius / 3, 0);
+	*/
+
+	//Vaisseau plus sophistiqué
+	mVertices.resize(9);
+	mVertices[0].set(0, height * 3/5);
+	mVertices[1].set(-width / 6, height * 2/5);
+	mVertices[2].set(-width / 6, 0);
+	mVertices[3].set(-width / 2, -height * 2/5);
+	mVertices[4].set(-width / 6, -height / 5);
+	mVertices[5].set(width / 6, -height / 5);
+	mVertices[6].set(width / 2, -height * 2/5);
+	mVertices[7].set(width / 6, 0);
+	mVertices[8].set(width / 6, height * 2/5);
 }
 
 void Polygon::buildTriangle(float width, float height)

@@ -5,6 +5,8 @@
 #include <EzApp>
 #include "Color.h"
 
+
+
 class ShapeColors
 {
 private:
@@ -19,8 +21,8 @@ public:
 	ShapeColors();
 	~ShapeColors();
 
-	void setBrushColor(ezapp::Screen& screen, float red, float green, float blue, float alpha = 1.0f);
-	void setPenColor(ezapp::Screen& screen, float red, float green, float blue, float alpha = 1.0f);
+	void setBrushColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
+	void setPenColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
 	void setPenWidth(float width);
 };
 

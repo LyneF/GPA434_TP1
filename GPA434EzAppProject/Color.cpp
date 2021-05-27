@@ -4,14 +4,37 @@
 #include <algorithm>
 
 
+void Color::convertColor(unsigned color)
+{
+	//Valider la valeur reçue
+	if ((color == 0) || (color > 0xFFFFFF)) {
+		mRed = 0.0f;
+		mGreen = 0.0f;
+		mBlue = 0.0f;
+		mAlpha = 0.0f;
+	}
+	//Convertir aux couleurs
+	else {
+		//Répartir la valeur de chaque couleur
+		unsigned red = color / 0x10000;
+		unsigned green = (color % 0x10000) / 0x100;
+		unsigned blue = (color % 0x10000) % 0x100;
+
+		//Convertir en valeur float
+		mRed = red / 0xFF;
+		mGreen = green / 0xFF;
+		mBlue = blue / 0xFF;
+	}
+}
+
 Color::Color()
-	: Color(0.0f, 0.0f, 0.0f, 1.0f)
+	: Color(WHITE)
 {
 }
 
-Color::Color(float red, float green, float blue, float alpha)
+Color::Color(unsigned color, float alpha)
 {
-	setColor(red, green, blue, alpha);
+	setColor(color, alpha);
 }
 
 Color::~Color()
@@ -59,11 +82,9 @@ void Color::setAlpha(float alpha)
 	mAlpha = std::clamp(alpha, 0.0f, 1.0f);
 }
 
-void Color::setColor(float red, float green, float blue, float alpha)
+void Color::setColor(unsigned color, float alpha)
 {
-	setRed(red);
-	setGreen(green);
-	setBlue(blue);
+	convertColor(color);
 	setAlpha(alpha);
 }
 

@@ -7,7 +7,6 @@
 #include "Polygon.h"
 #include "ShapeColors.h"
 
-
 class GameEngine
 {
 private:
