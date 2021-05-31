@@ -52,8 +52,8 @@ public:
 
 
 	// Lien avec la librairie EzApp
-	void setPen(ezapp::Screen& screen, float width);
-	void setBrush(ezapp::Screen& screen);
+	void setScreenPen(ezapp::Screen& screen, float width);
+	void setScreenBrush(ezapp::Screen& screen);
 
 };
 

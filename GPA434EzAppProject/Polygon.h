@@ -13,8 +13,6 @@ class Polygon
 private:
 	std::vector<Vect2D> mVertices;
 	ShapeColors mShapeColors;
-	//Color mFillColor;
-	//Color mOutlineColor;
 	Random valeur;
 
 public:
@@ -30,9 +28,8 @@ public:
 	void setVertex(size_t index, Vect2D const & vertex);
 	void setVertices(std::vector<Vect2D> const & vertices);
 
-	//Accesseurs/Mutateurs
-	Color& fillColor();
-	Color& outlineColor();
+	//Accesseurs/Mutateurs pour shapecolors
+	ShapeColors& shapeColors();
 
 	//Whatever
 	void setBrushColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);

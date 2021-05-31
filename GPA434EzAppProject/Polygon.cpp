@@ -49,15 +49,11 @@ void Polygon::setVertices(std::vector<Vect2D> const& vertices)
 	}
 }
 
-Color& Polygon::fillColor()
+ShapeColors& Polygon::shapeColors()
 {
-	//return mShapeColors.getBrushColor();
+	return mShapeColors;
 }
 
-Color& Polygon::outlineColor()
-{
-	//return mShapeColors.getPenColor();
-}
 
 void Polygon::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
 {

@@ -24,6 +24,7 @@ Color ShapeColors::getPenColor()
 void ShapeColors::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
 	mBrushColor.setColor(color, alpha);
+	//deux fonctions diff
 	//mBrushColor.setBrush(screen);
 }
 
