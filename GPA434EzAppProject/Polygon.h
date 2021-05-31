@@ -5,16 +5,21 @@
 #include <vector>
 #include "Vect2D.h"
 #include "ShapeColors.h"
+#include "Screen.h"
+#include "Random.h"
 
 class Polygon
 {
 private:
 	std::vector<Vect2D> mVertices;
 	ShapeColors mShapeColors;
+	//Color mFillColor;
+	//Color mOutlineColor;
+	Random valeur;
 
 public:
 	Polygon();
-	~Polygon();
+	~Polygon() = default;
 
 	// Accesseurs
 	size_t verticesCount() const;
@@ -24,6 +29,12 @@ public:
 	void setVerticesCount(size_t count);
 	void setVertex(size_t index, Vect2D const & vertex);
 	void setVertices(std::vector<Vect2D> const & vertices);
+
+	//Accesseurs/Mutateurs
+	Color& fillColor();
+	Color& outlineColor();
+
+	//Whatever
 	void setBrushColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
 	void setPenColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
 
@@ -33,9 +44,12 @@ public:
 	void buildRectangle(float width, float height);
 	void buildRegular(size_t numberOfSides, float circumbscribedRadius);
 	void buildCircle(float radius, size_t resolution = 16);
-	void buildVessel(float width, float height);
 	void buildTriangle(float width, float height);
-	
+
+	//Fonctions pou le jeu
+	void buildVessel();
+	void buildAsteroid();
+	void buildMissile();
 	//void buildStar(size_t numberOfSpikes, float circumbscribedRadius);
 
 	// Lien avec la librairie EzApp

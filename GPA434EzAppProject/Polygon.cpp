@@ -1,7 +1,8 @@
 #include "Polygon.h"
 #include <cmath>
 #include <algorithm>
-#include "Screen.h"
+#include <random>
+#include <time.h>
 
 //Écran: 1024 * 768
 
@@ -12,10 +13,10 @@ Polygon::Polygon()
 	buildRegular(3, 1.0f);
 }
 
-Polygon::~Polygon()
+/*Polygon::~Polygon()
 {
 	// ne fait rien!!
-}
+}*/
 
 size_t Polygon::verticesCount() const
 {
@@ -46,6 +47,16 @@ void Polygon::setVertices(std::vector<Vect2D> const& vertices)
 	if (vertices.size() >= 3) {
 		mVertices = vertices;
 	}
+}
+
+Color& Polygon::fillColor()
+{
+	//return mShapeColors.getBrushColor();
+}
+
+Color& Polygon::outlineColor()
+{
+	//return mShapeColors.getPenColor();
 }
 
 void Polygon::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
@@ -91,82 +102,73 @@ void Polygon::buildCircle(float radius, size_t resolution)
 	buildRegular(resolution, radius);
 }
 
-void Polygon::buildVessel(float width, float height)
-{
-	/*
-	* 
-	* (float width, float height, float radius, size_t resolution)
-		//pourquoi il dessine seulement la dernière forme demandée???--> dans draw, l'appeler plusieurs fois?
-
-		//Création des 4 cercles composants la forme du vaisseau
-		//-->Cercle principal
-		//draw(screen.drawPolygon(x, y, rotation, scale);
-		buildRegular(resolution, radius);
-
-		//-->Petits cercles sous le vaisseau
-		//Il faut décaler leur centre
-		//draw(screen.drawPolygon(x, y, rotation, scale);
-		buildRegular(resolution, radius / 5.0f);
-		//draw(screen.drawPolygon(x, y, rotation, scale);
-		buildRegular(resolution, radius / 5.0f);
-		//draw(screen.drawPolygon(x, y, rotation, scale);
-		buildRegular(resolution, radius / 5.0f);
-
-	
-		//Création de la base du vaisseau
-		mVertices.resize(9);
-		mVertices[0].set(-width / 4.0f, 0.0f);
-		mVertices[1].set((-width / 2.0f)+1.0f, -height / 4.0f);
-		mVertices[2].set(-width / 2.0f, (-height /2.0f) + 1.5f);
-		mVertices[3].set((-width / 4.0f)+1.0f, (-height / 2.0f)-3.5f);
-		mVertices[4].set(0.0f,(-height / 2.0f)-5.0f);
-		mVertices[5].set((width / 5.0f) + 1.0f, (-height / 2.0f)-3.5f);
-		mVertices[6].set(width / 2.0f, (-height / 2.0f) + 1.5f);
-		mVertices[7].set((width / 2.0f) + 1.0f, -height / 4.0f);
-		mVertices[8].set(width / 4.0f, 0.0f);
-	*/
-
-	/*	Vaisseau = triangle qui shoot
-		mVertices.resize(7);
-		mVertices[0].set(0, circumbscribedRadius/2);
-		mVertices[1].set(-circumbscribedRadius / 3, 0);
-		mVertices[2].set(-circumbscribedRadius / 10, circumbscribedRadius / 10);
-		mVertices[3].set(-circumbscribedRadius / 7, -circumbscribedRadius / 7);
-		mVertices[4].set(circumbscribedRadius / 7, -circumbscribedRadius / 7);
-		mVertices[5].set(circumbscribedRadius / 10, circumbscribedRadius / 10);
-		mVertices[6].set(circumbscribedRadius / 3, 0);
-	*/
-
-	//Vaisseau plus sophistiqué
-	mVertices.resize(9);
-	mVertices[0].set(0, height * 3/5);
-	mVertices[1].set(-width / 6, height * 2/5);
-	mVertices[2].set(-width / 6, 0);
-	mVertices[3].set(-width / 2, -height * 2/5);
-	mVertices[4].set(-width / 6, -height / 5);
-	mVertices[5].set(width / 6, -height / 5);
-	mVertices[6].set(width / 2, -height * 2/5);
-	mVertices[7].set(width / 6, 0);
-	mVertices[8].set(width / 6, height * 2/5);
-}
-
 void Polygon::buildTriangle(float width, float height)
 {
 	buildRegular(3, width);
-	//mVertices.resize(3);
-	//mVertices[0].set(-width / 2.0f, -height / 2.0f);
-	//mVertices[1].set(width / 2.0f, -height / 2.0f);
-	//mVertices[2].set(0.0f, height / 2.0f);
 }
+
+void Polygon::buildVessel()
+{
+	//Vaisseau plus sophistiqué (identique à celui du prof)
+
+	float width{ 32.0f }, height{ 34.0f };
+
+	mVertices.resize(22);
+	mVertices[0].set(0, height * 12 / 17);
+	mVertices[1].set(-width / 16, height * 8 / 17);
+	mVertices[2].set(-width / 16, height * 6 / 17);
+	mVertices[3].set(-width * 3 / 16, height * 2 / 17);
+	mVertices[4].set(-width / 2, 0);
+	mVertices[5].set(-width / 2, -height * 2 / 17);
+	mVertices[6].set(-width * 3 / 16, -height * 2 / 17);
+	mVertices[7].set(-width * 3 / 16, -height * 4 / 17);
+	mVertices[8].set(-width * 5 / 16, -height * 7 / 17);
+	mVertices[9].set(-width * 3 / 16, -height * 7 / 17);
+	mVertices[10].set(-width / 16, -height * 5 / 17);
+	mVertices[11].set(0, -height * 6 / 17);
+	mVertices[12].set(width / 16, -height * 5 / 17);
+	mVertices[13].set(width * 3 / 16, -height * 7 / 17);
+	mVertices[14].set(width * 5 / 16, -height * 7 / 17);
+	mVertices[15].set(width * 3 / 16, -height * 4 / 17);
+	mVertices[16].set(width * 3 / 16, -height * 2 / 17);
+	mVertices[17].set(width / 2, -height * 2 / 17);
+	mVertices[18].set(width / 2, 0);
+	mVertices[19].set(width * 3 / 16, height * 2 / 17);
+	mVertices[20].set(width / 16, height * 6 / 17);
+	mVertices[21].set(width / 16, height * 8 / 17);
+
+}
+
+void Polygon::buildAsteroid()
+{
+	//Initialiser rand()
+	srand(time(NULL));
+
+	float radius = valeur.real(15, 25);
+	int sides = valeur.integer(4, 8);
+
+	const float pi{ 3.1415926535897932384626433832795f };
+
+	mVertices.resize(sides);
+	for (int i{}; i < sides; ++i) {
+		float theta{ i * valeur.real(2,4) * pi / sides };
+		mVertices[i].set(std::cos(theta) * radius,
+			std::sin(theta) * radius);
+	}
+
+}
+
+void Polygon::buildMissile()
+{
+	mVertices.resize(22);
+
+	//À FAIRE
+
+}
+
 
 void Polygon::draw(ezapp::Screen& screen, float x, float y, float rotation, float scale)
 {
 	screen.setPolygonVertices(mVertices);
 	screen.drawPolygon(x, y, rotation, scale);
-	
-	//pour dessiner les 5 polygones au total, avec un tab?
-	//screen.drawPolygon(x, y, rotation, scale);
-	//screen.drawPolygon(x, y, rotation, scale);
-	//screen.drawPolygon(x, y, rotation, scale);
-	//screen.drawPolygon(x, y, rotation, scale);
 }

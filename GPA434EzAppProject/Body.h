@@ -9,18 +9,25 @@
 class Body
 {
 private:
-	Physics mPhysics{ };
+	Physics mBody{ };
 	Polygon mShape{ };
 
 public:
+
+	Body() {}	//À vérifier
+	~Body() = default;
+
+	//Accesseurs
+
+	//Mutateurs
 	void reset();
 	void applyLinearAcceleration(Vect2D acceleration);
 	void applyLinearAcceleration(float acceleration);
 	void applyAngularAcceleration(float acceleration);
+
+
 	void processTime(float elapsedTime);
 	void drawOnScreen(ezapp::Screen & screen);
-
-
 
 	//Vérifier si les positions de l'astéro et du body other sont pareilles
 	bool isColliding(Body other); //ezapp: polygonUtilities intersectPolygon

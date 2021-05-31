@@ -2,34 +2,38 @@
 
 //mShape.buildRegular
 
+Body::Body()
+{
+	reset();
+}
 
 void Body::reset()
 {
-	mPhysics.reset();
+	mBody.reset();
 	mShape = Polygon();
 }
 
 void Body::applyLinearAcceleration(Vect2D acceleration)
 {
-	mPhysics.applyLinearAcceleration(acceleration);
+	mBody.applyLinearAcceleration(acceleration);
 }
 
 void Body::applyLinearAcceleration(float acceleration)
 {
-	mPhysics.applyLinearAcceleration(acceleration);
+	mBody.applyLinearAcceleration(acceleration);
 }
 
 void Body::applyAngularAcceleration(float acceleration)
 {
-	mPhysics.applyAngularAcceleration(acceleration);
+	mBody.applyAngularAcceleration(acceleration);
 }
 
 void Body::processTime(float elapsedTime)
 {
-	mPhysics.processTime(elapsedTime);
+	mBody.processTime(elapsedTime);
 }
 
 void Body::drawOnScreen(ezapp::Screen& screen)
 {
-	mShape.draw(screen, mPhysics.getLinearPosition_X(), mPhysics.getLinearPosition_Y());
+	mShape.draw(screen, mBody.getLinearPosition_X(), mBody.getLinearPosition_Y());
 }

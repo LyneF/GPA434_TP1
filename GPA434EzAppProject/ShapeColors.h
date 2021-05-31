@@ -21,6 +21,11 @@ public:
 	ShapeColors();
 	~ShapeColors();
 
+	//Accesseurs
+	Color getBrushColor();
+	Color getPenColor();
+
+	//Mutateurs
 	void setBrushColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
 	void setPenColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
 	void setPenWidth(float width);

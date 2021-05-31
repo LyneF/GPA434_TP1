@@ -11,16 +11,26 @@ ShapeColors::~ShapeColors()
 {
 }
 
+Color ShapeColors::getBrushColor()
+{
+	return mBrushColor;
+}
+
+Color ShapeColors::getPenColor()
+{
+	return mPenColor;
+}
+
 void ShapeColors::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
 	mBrushColor.setColor(color, alpha);
-	mBrushColor.setBrush(screen);
+	//mBrushColor.setBrush(screen);
 }
 
 void ShapeColors::setPenColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
 	mPenColor.setColor(color, alpha);
-	mPenColor.setPen(screen, mPenWidth);
+	//mPenColor.setPen(screen, mPenWidth);
 }
 
 void ShapeColors::setPenWidth(float width)

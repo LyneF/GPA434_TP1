@@ -2,15 +2,16 @@
 
 //Constructeur
 Physics::Physics()
-	: mAngularPosition{ },
-	mAngularVelocity{ },
-	mAngularAcceleration{ },
+	: mAngularPosition{ 0.0f  },
+	mAngularVelocity{ 0.0f },
+	mAngularAcceleration{ 0.0f },
 	mLinearPosition(),
 	mLinearVelocity(),
 	mLinearAcceleration()
 {
 }
 
+//Faut-il rajouter les vect2d
 Physics::Physics(float AngularPosition, float AngularVelocity, float AngularAcceleration)
 {
 	mAngularPosition = AngularPosition;
@@ -19,9 +20,9 @@ Physics::Physics(float AngularPosition, float AngularVelocity, float AngularAcce
 }
 
 //Destructeur
-Physics:: ~Physics() // ne fait rien
+/*Physics:: ~Physics() // ne fait rien
 {
-}
+}*/
 
 //Réinitialisation des paramètres
 void Physics::reset()
@@ -31,7 +32,7 @@ void Physics::reset()
 	mLinearAcceleration.reset();
 }
 
-Vect2D Physics::getLinearPosition()
+Vect2D Physics::getLinearPosition() const
 {
 	return mLinearPosition;
 }
@@ -43,7 +44,7 @@ float Physics::getLinearPosition_Y()
 {
 	return mLinearPosition.y();
 }
-Vect2D Physics::getLinearVelocity()
+Vect2D Physics::getLinearVelocity() const
 {
 	return mLinearVelocity;
 }
@@ -55,7 +56,7 @@ float Physics::getLinearVelocity_Y()
 {
 	return mLinearVelocity.y();
 }
-Vect2D Physics::getLinearAcceleration()
+Vect2D Physics::getLinearAcceleration() const
 {
 	return mLinearAcceleration;
 }
@@ -68,11 +69,26 @@ float Physics::getLinearAcceleration_Y()
 	return mLinearAcceleration.y();
 }
 
+void Physics::setPosition(Vect2D const& position)
+{
+	mLinearPosition = position;
+}
+
+void Physics::setVelocity(Vect2D const& velocity)
+{
+	mLinearVelocity = velocity;
+}
+
+void Physics::setAcceleration(Vect2D const& acceleration)
+{
+	mLinearAcceleration = acceleration;
+}
+
+
 //Utiliser des opérateurs dans Vect2D
 //Additionne une accélération linéaire à celle déjà existante
-void Physics::applyLinearAcceleration(Vect2D acceleration)
+void Physics::applyLinearAcceleration(Vect2D const& acceleration)
 {
-	//composé des float linear et angular?????
 	mLinearAcceleration += acceleration;
 }
 
@@ -107,4 +123,20 @@ void Physics::processTime(float elapsedTime)
 	mAngularVelocity += mAngularAcceleration * elapsedTime;
 	
 	reset();
+}
+
+void Physics::manageBorder(float left, float top, float right, float bottom)
+{
+	if (mLinearPosition.x() < left) {
+		mLinearPosition.setX(right + mLinearPosition.x());
+	}
+	else if (mLinearPosition.x() > right) {
+		mLinearPosition.setX(left + mLinearPosition.x() - right);
+	}
+	if (mLinearPosition.y() < top) {
+		mLinearPosition.setY(bottom + mLinearPosition.y());
+	}
+	else if (mLinearPosition.y() > bottom) {
+		mLinearPosition.setY(top + mLinearPosition.y() - bottom);
+	}
 }

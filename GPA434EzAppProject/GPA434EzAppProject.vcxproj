@@ -102,6 +102,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="ShapeColors.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +117,7 @@
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Polygon.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="ShapeColors.h" />
     <ClInclude Include="Vect2D.h" />
   </ItemGroup>

@@ -11,12 +11,17 @@ class GameEngine
 {
 private:
 	double mTime;
-	Polygon mPentagon;
+	Polygon mShuttle;
+	Polygon mAsteroid;
+	Polygon mMissile;
 	Color mFillColor;
 	Color mOutlineColor;			//à remplacer par ShapeColor qqch;
-	Vect2D mPentagonPosition;
-	float mPentagonOrientation;
-	float mPentagonSize;
+	Vect2D mShuttlePosition;
+	Vect2D mAsteroidPosition;
+	float mShuttleOrientation;
+	float mAsteroidOrientation;
+	float mShuttleSize;
+	float mAsteroidSize;
 
 public:
 	GameEngine();

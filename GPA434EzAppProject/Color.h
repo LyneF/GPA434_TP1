@@ -3,8 +3,9 @@
 
 enum Colors {
 	RED = 0xFF0000, GREEN = 0x00FF00, BLUE = 0x0000FF,
-	VESSEL = 0x7F7FFF, BLACK = 0xFFFFFF, WHITE = 0x000000,
-	SCREEN = 0xFFFF00, BORDER = 0xFF7F00
+	VESSEL = 0x7F7FFF, WHITE = 0xFFFFFF, BLACK = 0x000000,
+	YELLOW = 0xFFFF00, CYAN = 0x00FFFF, MAGENTA = 0xFF00FF,
+	SCREEN = 0xFFFF00, BORDER = 0xFF7F00, MISSILE = 0xEB5534
 };
 
 #include <EzApp>
@@ -17,29 +18,33 @@ enum Colors {
 
 class Color
 {
+public:
+	using couleur = float;
 private:
-	float mRed, mGreen, mBlue, mAlpha;
+	couleur mRed, mGreen, mBlue, mAlpha;
 
 	//Fonction pour convertir la couleur en hex
 	void convertColor(unsigned color);
 
 public:
 	Color();
-	Color(unsigned color, float alpha = 1.0f);
-	~Color();
+	Color(unsigned color, couleur alpha = 1.0f);
+	~Color() = default;
+	Color& operator=(Color const& rhs) = default; // opérateur d'assignation
+	Color(Color const& color) = default; // constructeur de copie
 
 	// Accesseurs
-	float red() const;
-	float green() const;
-	float blue() const;
-	float alpha() const;
+	couleur red() const;
+	couleur green() const;
+	couleur blue() const;
+	couleur alpha() const;
 
 	// Mutateurs
-	void setRed(float red);
-	void setGreen(float green);
-	void setBlue(float blue);
-	void setAlpha(float alpha);
-	void setColor(unsigned color, float alpha = 1.0f);
+	void setRed(couleur red);
+	void setGreen(couleur green);
+	void setBlue(couleur blue);
+	void setAlpha(couleur alpha);
+	void setColor(unsigned color, couleur alpha = 1.0f);
 
 	// Fonctions utilitaires
 	void randomize(bool randomizeAlpha = false);

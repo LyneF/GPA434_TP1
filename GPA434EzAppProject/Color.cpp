@@ -11,7 +11,6 @@ void Color::convertColor(unsigned color)
 		mRed = 0.0f;
 		mGreen = 0.0f;
 		mBlue = 0.0f;
-		mAlpha = 0.0f;
 	}
 	//Convertir aux couleurs
 	else {
@@ -20,7 +19,7 @@ void Color::convertColor(unsigned color)
 		unsigned green = (color % 0x10000) / 0x100;
 		unsigned blue = (color % 0x10000) % 0x100;
 
-		//Convertir en valeur float
+		//Convertir en valeur couleur
 		mRed = red / 0xFF;
 		mGreen = green / 0xFF;
 		mBlue = blue / 0xFF;
@@ -28,61 +27,61 @@ void Color::convertColor(unsigned color)
 }
 
 Color::Color()
-	: Color(WHITE)
+	: Color(BLACK)
 {
 }
 
-Color::Color(unsigned color, float alpha)
+Color::Color(unsigned color, couleur alpha)
 {
 	setColor(color, alpha);
 }
 
-Color::~Color()
+/*Color::~Color()
 {
 	// ne fait rien!
-}
+}*/
 
-float Color::red() const
+Color::couleur Color::red() const
 {
 	return mRed;
 }
 
-float Color::green() const
+Color::couleur Color::green() const
 {
 	return mGreen;
 }
 
-float Color::blue() const
+Color::couleur Color::blue() const
 {
 	return mBlue;
 }
 
-float Color::alpha() const
+Color::couleur Color::alpha() const
 {
 	return mAlpha;
 }
 
-void Color::setRed(float red)
+void Color::setRed(couleur red)
 {
 	mRed = std::clamp(red, 0.0f, 1.0f);
 }
 
-void Color::setGreen(float green)
+void Color::setGreen(couleur green)
 {
 	mGreen = std::clamp(green, 0.0f, 1.0f);
 }
 
-void Color::setBlue(float blue)
+void Color::setBlue(couleur blue)
 {
 	mBlue = std::clamp(blue, 0.0f, 1.0f);
 }
 
-void Color::setAlpha(float alpha)
+void Color::setAlpha(couleur alpha)
 {
 	mAlpha = std::clamp(alpha, 0.0f, 1.0f);
 }
 
-void Color::setColor(unsigned color, float alpha)
+void Color::setColor(unsigned color, couleur alpha)
 {
 	convertColor(color);
 	setAlpha(alpha);
@@ -90,10 +89,10 @@ void Color::setColor(unsigned color, float alpha)
 
 void Color::randomize(bool randomizeAlpha)
 {
-	mRed = (float)rand() / RAND_MAX;
-	mGreen = (float)rand() / RAND_MAX;
-	mBlue = (float)rand() / RAND_MAX;
-	mAlpha = randomizeAlpha ? (float)rand() / RAND_MAX : 1.0f;
+	mRed = (couleur)rand() / RAND_MAX;
+	mGreen = (couleur)rand() / RAND_MAX;
+	mBlue = (couleur)rand() / RAND_MAX;
+	mAlpha = randomizeAlpha ? (couleur)rand() / RAND_MAX : 1.0f;
 }
 
 //On ne devrait pas les voir plus loin?? Genre dans polygon.h
