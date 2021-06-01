@@ -6,11 +6,14 @@
 #include "Vect2D.h"
 #include "Polygon.h"
 #include "ShapeColors.h"
+#include "Body.h"
+#include "GravityManager.h"
+#include <vector>
 
 class GameEngine
 {
 private:
-	double mTime;
+	/*double mTime;
 	Polygon mShuttle;
 	Polygon mAsteroid;
 	Polygon mMissile;
@@ -21,7 +24,12 @@ private:
 	float mShuttleOrientation;
 	float mAsteroidOrientation;
 	float mShuttleSize;
-	float mAsteroidSize;
+	float mAsteroidSize;*/   //pu dans le code de gameengine du prof
+
+	float mBodyInsertionTrigger;
+	float mTime;
+	GravityManager mGravityManager;
+	std::vector<Body> mBody;
 
 public:
 	GameEngine();

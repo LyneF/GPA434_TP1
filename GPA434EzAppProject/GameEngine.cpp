@@ -1,6 +1,6 @@
 #include "GameEngine.h"
 
-
+/*
 GameEngine::GameEngine()
     :mTime{ 0.0f },
     mShuttle(),
@@ -17,10 +17,21 @@ GameEngine::GameEngine()
     mShuttle.buildVessel();
     mAsteroid.buildAsteroid();
 }
+*/
+
+GameEngine::GameEngine()
+    : mBodyInsertionTrigger{}
+    , mBody(1)
+{
+    mGravityManager.setShapeOrigin(Vect2D(1200.0f / 2.0f, 1000.0f / 2.0f));
+
+    for (int i{}; i < mBody.size(); ++i) {
+        mBody[i].randomize(0.0f, 1200.0f, 0.0f, 1000.0f, 250.0f, 5.0f, 25.0f);
+    }
+}
 
 GameEngine::~GameEngine()
 {
-
 }
 
 bool GameEngine::processEvents(ezapp::Keyboard const& keyboard, ezapp::Timer const& timer) {

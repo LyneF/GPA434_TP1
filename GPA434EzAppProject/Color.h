@@ -48,6 +48,9 @@ public:
 
 	// Fonctions utilitaires
 	void randomize(bool randomizeAlpha = false);
+	static Color randomized(bool randomizeAlpha = false);
+
+
 	// void blend(Color color, float factor = 0.5f); // TO DO
 
 

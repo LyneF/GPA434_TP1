@@ -21,6 +21,16 @@ Color ShapeColors::getPenColor()
 	return mPenColor;
 }
 
+Color ShapeColors::getFillColor()
+{
+	return mFillColor;
+}
+
+Color ShapeColors::getOutlineColor()
+{
+	return mOutlineColor;
+}
+
 void ShapeColors::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
 {
 	mBrushColor.setColor(color, alpha);
@@ -37,5 +47,13 @@ void ShapeColors::setPenColor(ezapp::Screen& screen, unsigned color, float alpha
 void ShapeColors::setPenWidth(float width)
 {
 	mPenWidth = width;
+}
+
+void ShapeColors::setFillColor()
+{
+}
+
+void ShapeColors::setOutlineColor()
+{
 }
 

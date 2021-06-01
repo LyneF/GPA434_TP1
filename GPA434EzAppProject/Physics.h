@@ -14,6 +14,8 @@ private:
 	float mAngularPosition;
 	float mAngularVelocity;
 	float mAngularAcceleration;
+	float mBouncingCoeff;
+	float mFrictionCoeff;
 
 
 public:
@@ -33,6 +35,9 @@ public:
 	float getLinearAcceleration_X();
 	float getLinearAcceleration_Y();
 
+	float bouncingCoeff() const;
+	float frictionCoeff() const;
+
 	//Mutateurs
 	void setPosition(Vect2D const& position);
 	void setVelocity(Vect2D const& velocity);
@@ -40,7 +45,7 @@ public:
 	void applyLinearAcceleration(Vect2D const& acceleration);
 	void applyLinearAcceleration(float acceleration);
 	void applyAngularAcceleration(float acceleration);
-	void processTime(float elapsedTime);
+	void setCoefficients(float friction, float bouncing);
 
 	//void randomize(...);
 

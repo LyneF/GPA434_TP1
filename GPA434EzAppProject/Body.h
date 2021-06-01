@@ -4,30 +4,46 @@
 #include <EzApp>
 #include "Physics.h"
 #include "Polygon.h"
+#include "Color.h"
 
 
 class Body
 {
 private:
-	Physics mBody{ };
-	Polygon mShape{ };
+	Physics mBody;  //vérif: pas initialisés dans exemple du prof à {}
+	Polygon mShape;  //vérif: pas initialisés dans exemple du prof à {}
+	size_t mBouncingCount;
+	float mRadius;
 
 public:
 
-	Body() {}	//À vérifier
+	Body(float radius = 10.0f, Color const& outlineColor = BLACK, Color const& fillColor = WHITE); 	//ceci est un constructeur par défaut!!!
 	~Body() = default;
 
+	//Pour valider si un astéroide doit être enlevé du jeu
+	bool isToBeRemoved() const;
+
 	//Accesseurs
+	Polygon shape() const;
+	Physics body() const;
+	float radius() const;
 
 	//Mutateurs
 	void reset();
-	void applyLinearAcceleration(Vect2D acceleration);
+
+	void setBody(Physics const& body);
+	void setRadius(float radius);
+	void setColors(Color const& outlineColor, Color const& fillColor);
+
+	void applyLinearAcceleration(Vect2D const& acceleration);
 	void applyLinearAcceleration(float acceleration);
 	void applyAngularAcceleration(float acceleration);
 
-
 	void processTime(float elapsedTime);
-	void drawOnScreen(ezapp::Screen & screen);
+	void drawOnScreen(ezapp::Screen & screen) const;
+
+	void randomize(float left, float top, float right, float bottom, float maxSpeed, float minRadius, float maxRadius);
+	void bounceBorder(float left, float top, float right, float bottom);
 
 	//Vérifier si les positions de l'astéro et du body other sont pareilles
 	bool isColliding(Body other); //ezapp: polygonUtilities intersectPolygon

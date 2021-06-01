@@ -99,11 +99,13 @@
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GravityManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ShapeColors.cpp" />
+    <ClCompile Include="Vect2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\EzApp\header\Application.h" />
@@ -114,6 +116,7 @@
     <ClInclude Include="Body.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GravityManager.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Polygon.h" />

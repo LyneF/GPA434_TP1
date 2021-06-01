@@ -1,7 +1,7 @@
 #ifndef VECT2D_H
 #define VECT2D_H
 
-
+#include "Random.h"
 #include <cmath>
 #include <ostream>
 #include <sstream>
@@ -61,7 +61,7 @@ public:
 	}
 	
 	// Distance entre 2 Vect2D
-	float distanceSquared(Vect2D const& other) const { return std::pow(other.x() - mX, 2.0) + std::pow(other.y() - mY, 2.0); }
+	float distanceSquared(Vect2D const& other) const { return std::pow(other.x() - mX, 2.0f) + std::pow(other.y() - mY, 2.0f); }
 	float distance(Vect2D const& other) const { return std::sqrt(distanceSquared(other)); }
 
 	// Vecteur unitaire
@@ -86,12 +86,23 @@ public:
 	}
 
 	// Valeurs aléatoires
-	// TO DO
-	// void randomizeX(float minValue = 0.0f, float maxValue = 1.0f);
-	// void randomizeY(float minValue = 0.0f, float maxValue = 1.0f);
-	// void randomize(float minValue = 0.0f, float maxValue = 1.0f);
-	// void randomize(float minXValue = 0.0f, float maxXValue = 1.0f, float minYValue = 0.0f, float maxYValue = 1.0f);
+	void randomizeX(float minValue = 0.0f, float maxValue = 1.0f) { mX = Random::real(minValue, maxValue); }
+	void randomizeY(float minValue = 0.0f, float maxValue = 1.0f) { mY = Random::real(minValue, maxValue); }
+	void randomize(float minValue, float maxValue) { randomize(minValue, maxValue, minValue, maxValue); }
+	void randomize(float minXValue, float maxXValue, float minYValue, float maxYValue) {
+		randomizeX(minXValue, maxXValue);
+		randomizeY(minYValue, maxYValue);
+	}
 
+	static Vect2D randomized(float minXValue, float maxXValue, float minYValue, float maxYValue) {
+		Vect2D vect;
+		vect.randomize(minXValue, maxXValue, minYValue, maxYValue);
+		return vect;
+	}
+
+	static Vect2D randomized(float minValue, float maxValue) {
+		return randomized(minValue, maxValue, minValue, maxValue);
+	}
 	// Opérateurs
 	// lhs => left hand side
 	// rhs => right hand side

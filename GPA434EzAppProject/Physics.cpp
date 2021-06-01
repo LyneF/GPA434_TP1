@@ -125,6 +125,8 @@ void Physics::processTime(float elapsedTime)
 	reset();
 }
 
+
+//Valider que c'est bine seulement linear position, pas angularposition
 void Physics::manageBorder(float left, float top, float right, float bottom)
 {
 	if (mLinearPosition.x() < left) {
