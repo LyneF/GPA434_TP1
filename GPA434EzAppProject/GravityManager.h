@@ -4,7 +4,7 @@
 
 #include <EzApp>
 #include "Vect2D.h"
-#include "Polygon.h"
+#include "Body.h"
 
 
 class GravityManager
@@ -12,7 +12,7 @@ class GravityManager
 private:
 	float mGravityStrength;
 	Vect2D mGravity;
-	Polygon mShape;
+	Body mBody;
 	Vect2D mShapeOrigin;
 
 public:
@@ -26,6 +26,9 @@ public:
 	// Mutateurs
 	void setGravityStrength(float strength);
 	void setShapeOrigin(Vect2D const& shapeOrigin);
+
+	//Accesseur/Mutateurs
+	Body& body();
 
 	// Keyboard management
 	void update(ezapp::Keyboard const& keyboard);

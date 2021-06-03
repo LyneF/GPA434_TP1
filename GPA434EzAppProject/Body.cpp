@@ -3,12 +3,12 @@
 #include <algorithm>
 #include "Random.h"
 
-//mShape.buildRegular
+//mPolygon.buildRegular
 
-Body::Body(float radius, Color const& outlineColor, Color const& fillColor)
+Body::Body(float radius, unsigned outlineColor, unsigned fillColor)
 	: mBouncingCount{}
 {
-	mShape.buildCircle(1.0f);
+	mPolygon.buildCircle(1.0f);
 	setRadius(radius);
 	setColors(outlineColor, fillColor);
 }
@@ -18,111 +18,114 @@ bool Body::isToBeRemoved() const
 	return mBouncingCount >= 2;
 }
 
-Polygon Body::shape() const
+Polygon& Body::polygon()
 {
-	return mShape;
+	return mPolygon;
 }
 
-Physics Body::body() const
+Physics& Body::physics()
 {
-	return mBody;
+	return mPhysics;
 }
 
-float Body::radius() const
+float& Body::radius()
 {
 	return mRadius;
 }
 
 void Body::reset()
 {
-	mBody.reset();
-	mShape = Polygon();
+	//mPolygon=Polygon();
+	mPhysics.reset();
+	mRadius = 1.0f;
 }
 
 void Body::setBody(Physics const& body)
 {
-	mBody = body;
+	mPhysics = body;
 }
 
 void Body::setRadius(float radius)
 {
 	mRadius = std::clamp(radius, 0.5f, 1000.0f);
-	mShape.setOutlineWidth(1.0f / mRadius);
+	mPolygon.outlineWidth() = 1.0 / mRadius;
+	mPolygon.setOutlineWidth();
 }
 
-void Body::setColors(Color const& outlineColor, Color const& fillColor)
+void Body::setColors(unsigned outlineColor, unsigned fillColor)
 {
-	mShape.fillColor() = fillColor;
-	mShape.outlineColor() = outlineColor;
+	mPolygon.setBrushColor(fillColor);
+	mPolygon.setPenColor(outlineColor);
 }
 
 void Body::applyLinearAcceleration(Vect2D const& acceleration)
 {
-	mBody.applyLinearAcceleration(acceleration);
+	mPhysics.applyLinearAcceleration(acceleration);
 }
 
 
 void Body::applyLinearAcceleration(float acceleration)
 {
-	mBody.applyLinearAcceleration(acceleration);
+	mPhysics.applyLinearAcceleration(acceleration);
 }
 
 void Body::applyAngularAcceleration(float acceleration)
 {
-	mBody.applyAngularAcceleration(acceleration);
+	mPhysics.applyAngularAcceleration(acceleration);
 }
 
 void Body::processTime(float elapsedTime)
 {
-	mBody.processTime(elapsedTime);
+	mPhysics.processTime(elapsedTime);
 }
 
-void Body::drawOnScreen(ezapp::Screen& screen) const
+void Body::drawOnScreen(ezapp::Screen& screen)
 {
-	mShape.draw(screen, mBody.getLinearPosition_X(), mBody.getLinearPosition_Y());
+	mPolygon.draw(screen, mPhysics.getLinearPosition_X(), mPhysics.getLinearPosition_Y());
 }
 
 void Body::randomize(float left, float top, float right, float bottom, float maxSpeed, float minRadius, float maxRadius)
 {
 	// TO DO : Validate inputs!!!
 
-	mBody.setPosition(Vect2D::randomized(left, right, top, bottom));
-	mBody.setVelocity(Vect2D::randomized(-maxSpeed, maxSpeed));
+	mPhysics.setPosition(Vect2D::randomized(left, right, top, bottom));
+	mPhysics.setVelocity(Vect2D::randomized(-maxSpeed, maxSpeed));
 	setRadius(Random::real(minRadius, maxRadius));
-	mShape.fillColor().randomize();
-	mBody.setCoefficients(Random::real(0.75f, 1.0f), Random::real(0.75f, 1.0f));
+	mPolygon.shapeColors().getFillColor().randomize();
+	//mPhysics.setCoefficients(Random::real(0.75f, 1.0f), Random::real(0.75f, 1.0f));
 }
 
+/*
 void Body::bounceBorder(float left, float top, float right, float bottom)
 {
-	if (mBody.getLinearPosition().x() < left + mRadius) {
-		float newXPos{ left + 2.0f * mRadius + (left - mBody.getLinearPosition().x()) };
-		mBody.setPosition(Vect2D(newXPos, mBody.getLinearPosition().y()));
-		mBody.setVelocity(Vect2D(-mBody.getLinearVelocity().x() * mBody.bouncingCoeff(),
-			mBody.getLinearVelocity().y() * mBody.frictionCoeff()));
+	if (mPhysics.getLinearPosition().x() < left + mRadius) {
+		float newXPos{ left + 2.0f * mRadius + (left - mPhysics.getLinearPosition().x()) };
+		mPhysics.setPosition(Vect2D(newXPos, mPhysics.getLinearPosition().y()));
+		mPhysics.setVelocity(Vect2D(-mPhysics.getLinearVelocity().x() * mPhysics.bouncingCoeff(),
+			mPhysics.getLinearVelocity().y() * mPhysics.frictionCoeff()));
 		++mBouncingCount;
 	}
-	else if (mBody.getLinearPosition().x() > right - mRadius) {
-		float newXPos{ right - 2.0f * mRadius - (mBody.getLinearPosition().x() - right) };
-		mBody.setPosition(Vect2D(newXPos, mBody.getLinearPosition().y()));
-		mBody.setVelocity(Vect2D(-mBody.getLinearVelocity().x() * mBody.bouncingCoeff(),
-			mBody.getLinearVelocity().y() * mBody.frictionCoeff()));
+	else if (mPhysics.getLinearPosition().x() > right - mRadius) {
+		float newXPos{ right - 2.0f * mRadius - (mPhysics.getLinearPosition().x() - right) };
+		mPhysics.setPosition(Vect2D(newXPos, mPhysics.getLinearPosition().y()));
+		mPhysics.setVelocity(Vect2D(-mPhysics.getLinearVelocity().x() * mPhysics.bouncingCoeff(),
+			mPhysics.getLinearVelocity().y() * mPhysics.frictionCoeff()));
 		++mBouncingCount;
 	}
-	if (mBody.getLinearPosition().y() < top + mRadius) {
-		float newYPos{ top + 2.0f * mRadius + (left - mBody.getLinearPosition().y()) };
-		mBody.setPosition(Vect2D(mBody.getLinearPosition().x(), newYPos));
-		mBody.setVelocity(Vect2D(mBody.getLinearVelocity().x() * mBody.frictionCoeff(),
-			-mBody.getLinearVelocity().y() * mBody.bouncingCoeff()));
+	if (mPhysics.getLinearPosition().y() < top + mRadius) {
+		float newYPos{ top + 2.0f * mRadius + (left - mPhysics.getLinearPosition().y()) };
+		mPhysics.setPosition(Vect2D(mPhysics.getLinearPosition().x(), newYPos));
+		mPhysics.setVelocity(Vect2D(mPhysics.getLinearVelocity().x() * mPhysics.frictionCoeff(),
+			-mPhysics.getLinearVelocity().y() * mPhysics.bouncingCoeff()));
 		++mBouncingCount;
 	}
-	else if (mBody.getLinearPosition().y() > bottom - mRadius) {
-		float newYPos{ bottom - 2.0f * mRadius - (mBody.getLinearPosition().y() - bottom) };
-		mBody.setPosition(Vect2D(mBody.getLinearPosition().x(), newYPos));
-		mBody.setVelocity(Vect2D(mBody.getLinearVelocity().x() * mBody.frictionCoeff(),
-			-mBody.getLinearVelocity().y() * mBody.bouncingCoeff()));
+	else if (mPhysics.getLinearPosition().y() > bottom - mRadius) {
+		float newYPos{ bottom - 2.0f * mRadius - (mPhysics.getLinearPosition().y() - bottom) };
+		mPhysics.setPosition(Vect2D(mPhysics.getLinearPosition().x(), newYPos));
+		mPhysics.setVelocity(Vect2D(mPhysics.getLinearVelocity().x() * mPhysics.frictionCoeff(),
+			-mPhysics.getLinearVelocity().y() * mPhysics.bouncingCoeff()));
 		++mBouncingCount;
 	}
 }
-
+*/
 

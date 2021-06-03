@@ -14,8 +14,7 @@ class Polygon
 private:
 	std::vector<Vect2D> mVertices;
 	ShapeColors mShapeColors;
-	Random mValeur;
-	float mOutlineWidth;
+	float mOutlineWidth{ 1.0f };
 
 public:
 	Polygon();
@@ -24,21 +23,19 @@ public:
 	// Accesseurs
 	size_t verticesCount() const;
 	std::vector<Vect2D> vertices() const;
-	float outlineWidth() const;
 
 	// Mutateurs
 	void setVerticesCount(size_t count);
 	void setVertex(size_t index, Vect2D const & vertex);
 	void setVertices(std::vector<Vect2D> const & vertices);
-	void setOutlineWidth(float outlineWidth);
-	Random& valeur();
-	//Accesseurs/Mutateurs pour shapecolors
+	void setOutlineWidth();
+	//Random& valeur();
+	void setBrushColor(unsigned color, float alpha = 1.0f);
+	void setPenColor(unsigned color, float alpha = 1.0f);
+
+	//Accesseurs/Mutateurs
 	ShapeColors& shapeColors();
-
-	//Whatever
-	void setBrushColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
-	void setPenColor(ezapp::Screen& screen, unsigned color, float alpha = 1.0f);
-
+	float& outlineWidth();
 
 	// Fonctions utilitaires
 	void buildSquare(float length);

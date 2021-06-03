@@ -11,7 +11,6 @@
 Polygon::Polygon()
 	: mVertices()
 	, mShapeColors()
-	, mValeur()
 	, mOutlineWidth{ 1.0f}
 {
 	//Construire un polygone de x côtés avec y comme angle
@@ -32,6 +31,11 @@ size_t Polygon::verticesCount() const
 std::vector<Vect2D> Polygon::vertices() const
 {
 	return mVertices;
+}
+
+float& Polygon::outlineWidth()
+{
+	return mOutlineWidth;
 }
 
 void Polygon::setVerticesCount(size_t count)
@@ -55,24 +59,30 @@ void Polygon::setVertices(std::vector<Vect2D> const& vertices)
 	}
 }
 
+//Envoyer à Shapecolors
+void Polygon::setOutlineWidth()
+{
+	mShapeColors.setPenWidth(mOutlineWidth);
+}
+
 ShapeColors& Polygon::shapeColors()
 {
 	return mShapeColors;
 }
 
-Random& Polygon::valeur()
+/*Random& Polygon::valeur()
 {
 	return mValeur;
+}*/
+
+void Polygon::setBrushColor(unsigned color, float alpha)
+{
+	mShapeColors.setBrushColor(color, alpha);
 }
 
-void Polygon::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
+void Polygon::setPenColor(unsigned color, float alpha)
 {
-	mShapeColors.setBrushColor(screen, color, alpha);
-}
-
-void Polygon::setPenColor(ezapp::Screen& screen, unsigned color, float alpha)
-{
-	mShapeColors.setPenColor(screen, color, alpha);
+	mShapeColors.setPenColor(color, alpha);
 }
 
 void Polygon::buildSquare(float length)
@@ -150,14 +160,14 @@ void Polygon::buildAsteroid()
 	//Initialiser rand()
 	srand(time(NULL));
 
-	float radius = mValeur.real(15, 25);
-	int sides = mValeur.integer(4, 8);
+	float radius = Random::real(15, 25);
+	int sides = Random::integer(4, 8);
 
 	const float pi{ 3.1415926535897932384626433832795f };
 
 	mVertices.resize(sides);
 	for (int i{}; i < sides; ++i) {
-		float theta{ i * mValeur.real(2,4) * pi / sides };
+		float theta{ i * Random::real(2,4) * pi / sides };
 		mVertices[i].set(std::cos(theta) * radius,
 			std::sin(theta) * radius);
 	}
@@ -172,12 +182,12 @@ void Polygon::buildMissile()
 
 }
 
-void Polygon::buildStar(size_t numberOfSpikes, float circumbscribedRadius)
+/*void Polygon::buildStar(size_t numberOfSpikes, float circumbscribedRadius)
 {
 	for (int i{}; i < numberOfSpikes; ++i) {
 		mVertices[i].set(); //To do
 	}
-}
+}*/
 
 void Polygon::build7PointsArrow(float x, float y, float length, float width, float lipRatio, float tailWidthRatio) {
 /*                     ___ (x, y)
@@ -219,8 +229,8 @@ void Polygon::build7PointsArrow(float x, float y, float length, float width, flo
 
 void Polygon::draw(ezapp::Screen& screen, float x, float y, float rotation, float scale)
 {
-	mShapeColors.setFillColor.setBrushColor(screen);
-	mShapeColors.setOutlineColor.setPenColor(screen, mOutlineWidth);
+	mShapeColors.setFillColor(screen);
+	mShapeColors.setOutlineColor(screen, mOutlineWidth);
 	screen.setPolygonVertices(mVertices);
 	screen.drawPolygon(x, y, rotation, scale);
 }

@@ -9,10 +9,11 @@ GravityManager::GravityManager()
     : mGravityStrength{ 100.0f }
     , mGravity()
 {
-    mShape.build7PointsArrow(0.0f, 0.0f, 250.0f, 250.0f, 0.5f, 0.5f);
-    mShape.fillColor().setColor(0.5f, 0.5f, 1.0f);
-    mShape.outlineColor().setColor(0.25f, 0.25f, 1.0f);
-    mShape.setOutlineWidth(2.5f);
+    mBody.polygon().build7PointsArrow(0.0f, 0.0f, 250.0f, 250.0f, 0.5f, 0.5f);
+    mBody.polygon().shapeColors().setBrushColor(VESSEL);
+    mBody.polygon().shapeColors().setPenColor(LIGHTBLUE);
+    mBody.polygon().outlineWidth() = 2.5f;
+    mBody.polygon().setOutlineWidth();
 }
 
 float GravityManager::gravityStrength() const
@@ -35,6 +36,11 @@ void GravityManager::setShapeOrigin(Vect2D const& shapeOrigin)
     mShapeOrigin = shapeOrigin;
 }
 
+Body& GravityManager::body()
+{
+    return mBody;
+}
+
 void GravityManager::update(ezapp::Keyboard const& keyboard)
 {
     mGravity.reset();
@@ -55,6 +61,6 @@ void GravityManager::update(ezapp::Keyboard const& keyboard)
 void GravityManager::draw(ezapp::Screen& screen)
 {
     if (mGravity.isValid()) {
-        mShape.draw(screen, mShapeOrigin.x(), mShapeOrigin.y(), mGravity.orientation() - 3.141592654f / 2.0f, 1.0f);
+        mBody.polygon().draw(screen, mShapeOrigin.x(), mShapeOrigin.y(), mGravity.orientation() - 3.141592654f / 2.0f, 1.0f);
     }
 }

@@ -45,7 +45,7 @@ public:
 	void applyLinearAcceleration(Vect2D const& acceleration);
 	void applyLinearAcceleration(float acceleration);
 	void applyAngularAcceleration(float acceleration);
-	void setCoefficients(float friction, float bouncing);
+	//void setCoefficients(float friction, float bouncing);
 
 	//void randomize(...);
 

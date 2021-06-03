@@ -113,7 +113,7 @@ public:
 	Vect2D operator-(Vect2D const& rhs) const { return Vect2D(mX - rhs.mX, mY - rhs.mY); }
 
 	Vect2D operator*(float rhs) const { return Vect2D(mX * rhs, mY * rhs); }
-	Vect2D operator/(float rhs) const { return Vect2D(mX / rhs, mY / rhs); }// la division par zéro doit être gérée à l'extérieur
+	Vect2D operator/(float rhs) const { return Vect2D(mX / rhs, mY / rhs); } // la division par zéro doit être gérée à l'extérieur
 
 
 	bool operator==(Vect2D const& rhs) const { return mX == rhs.mX && mY == rhs.mY; }

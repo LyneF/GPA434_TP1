@@ -15,21 +15,18 @@ class GameEngine
 private:
 	/*double mTime;
 	Polygon mShuttle;
-	Polygon mAsteroid;
-	Polygon mMissile;
-	Color mFillColor;
-	Color mOutlineColor;			//à remplacer par ShapeColor qqch;
-	Vect2D mShuttlePosition;
-	Vect2D mAsteroidPosition;
-	float mShuttleOrientation;
-	float mAsteroidOrientation;
-	float mShuttleSize;
-	float mAsteroidSize;*/   //pu dans le code de gameengine du prof
+	
+	
+	
+	*/
 
 	float mBodyInsertionTrigger;
 	float mTime;
 	GravityManager mGravityManager;
 	std::vector<Body> mBody;
+	Vect2D mShuttlePosition;
+	float mShuttleOrientation;
+	float mShuttleSize;
 
 public:
 	GameEngine();

@@ -31,17 +31,16 @@ Color ShapeColors::getOutlineColor()
 	return mOutlineColor;
 }
 
-void ShapeColors::setBrushColor(ezapp::Screen& screen, unsigned color, float alpha)
+//Changer la couleur du pinceau
+void ShapeColors::setBrushColor(unsigned color, float alpha)
 {
 	mBrushColor.setColor(color, alpha);
-	//deux fonctions diff
-	//mBrushColor.setBrush(screen);
 }
 
-void ShapeColors::setPenColor(ezapp::Screen& screen, unsigned color, float alpha)
+//Changer la couleur du stylo
+void ShapeColors::setPenColor(unsigned color, float alpha)
 {
 	mPenColor.setColor(color, alpha);
-	//mPenColor.setPen(screen, mPenWidth);
 }
 
 void ShapeColors::setPenWidth(float width)
@@ -49,11 +48,17 @@ void ShapeColors::setPenWidth(float width)
 	mPenWidth = width;
 }
 
-void ShapeColors::setFillColor()
+//Envoyer la couleur du pinceau à l'écran
+void ShapeColors::setFillColor(ezapp::Screen& screen)
 {
+	mBrushColor.setScreenBrush(screen);
 }
 
-void ShapeColors::setOutlineColor()
+//Enoyer la couleur du stylo à l'écran
+void ShapeColors::setOutlineColor(ezapp::Screen& screen, float width)
 {
+	if ((width <= 0) || (width >= 5.0f))
+		width = mPenWidth;
+	mPenColor.setScreenPen(screen, width);
 }
 

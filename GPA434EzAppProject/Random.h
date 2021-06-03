@@ -6,7 +6,7 @@ class Random
 {
 public:
 	Random() = delete;
-	~Random() = delete;
+	~Random() = default;
 	Random& operator=(Random const & rhs) = delete;
 	Random(Random const & random) = delete;
 

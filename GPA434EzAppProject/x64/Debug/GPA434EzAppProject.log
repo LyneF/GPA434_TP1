@@ -1,38 +1,11 @@
-﻿  Body.cpp
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(45,37): error C2535: 'void Physics::processTime(float)': member function already defined or declared
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(40): message : see declaration of 'Physics::processTime'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Body.cpp(6,1): error C2084: function 'Body::Body(void)' already has a body
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Body.h(17): message : see previous definition of '{ctor}'
-  Color.cpp
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Color.cpp(23,14): warning C4244: '=': conversion from 'unsigned int' to 'Color::couleur', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Color.cpp(24,18): warning C4244: '=': conversion from 'unsigned int' to 'Color::couleur', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Color.cpp(25,16): warning C4244: '=': conversion from 'unsigned int' to 'Color::couleur', possible loss of data
-  GameEngine.cpp
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(30,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(31,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(32,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(33,34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(48,20): warning C4244: 'argument': conversion from 'double' to 'Color::couleur', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(49,21): warning C4244: 'argument': conversion from 'double' to 'Color::couleur', possible loss of data
-  main.cpp
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Physics.cpp
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(45,37): error C2535: 'void Physics::processTime(float)': member function already defined or declared
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(40): message : see declaration of 'Physics::processTime'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.cpp(35,1): error C2511: 'Vect2D Physics::getLinearPosition(void)': overloaded member function not found in 'Physics'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(8): message : see declaration of 'Physics'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.cpp(36,9): error C2597: illegal reference to non-static member 'Physics::mLinearPosition'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(11): message : see declaration of 'Physics::mLinearPosition'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.cpp(47,1): error C2511: 'Vect2D Physics::getLinearVelocity(void)': overloaded member function not found in 'Physics'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(8): message : see declaration of 'Physics'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.cpp(48,9): error C2597: illegal reference to non-static member 'Physics::mLinearVelocity'
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Physics.h(12): message : see declaration of 'Physics::mLinearVelocity'
-  Polygon.cpp
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(46,90): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(175,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Polygon.cpp(178,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  ShapeColors.cpp
-  Generating Code...
+﻿  GameEngine.cpp
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(89,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(89,84): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(90,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\Vect2D.h(90,84): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Admin\Documents\GitHub\GPA434_TP1\GPA434EzAppProject\GameEngine.cpp(46,53): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+EzApp-d.lib(Application.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Application.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Keyboard.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Keyboard.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Screen.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Screen.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+EzApp-d.lib(Timer.obj) : warning LNK4099: PDB 'EzApp.pdb' was not found with 'EzApp-d.lib(Timer.obj)' or at 'C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\EzApp.pdb'; linking object as if no debug info
+  GPA434EzAppProject.vcxproj -> C:\Users\Admin\Documents\GitHub\GPA434_TP1\x64\Debug\GPA434EzAppProject.exe
