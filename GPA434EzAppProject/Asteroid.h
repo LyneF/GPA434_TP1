@@ -4,6 +4,9 @@
 
 #include <EzApp>
 #include "Body.h"
+#include "GameEngine.h"
+#include "Asteroid.h"
+#include "Polygon.h"
 
 class Asteroid
 {
@@ -12,8 +15,12 @@ private:
 	
 
 public:
+	Asteroid();
+	~Asteroid() = default;
+
 	float processTime(float elapsedTime);
-	void drawOnScreen(ezapp::Screen &screen);
+	void drawOnScreen(ezapp::Screen &screen, Vect2D mAsteroidPosition,
+	float mAsteroidOrientation,float mAsteroidSize);
 
 
 

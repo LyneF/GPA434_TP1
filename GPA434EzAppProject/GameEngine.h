@@ -27,6 +27,9 @@ private:
 	Vect2D mShuttlePosition;
 	float mShuttleOrientation;
 	float mShuttleSize;
+	Vect2D mAsteroidPosition;
+	float mAsteroidOrientation;
+	float mAsteroidSize;
 
 public:
 	GameEngine();

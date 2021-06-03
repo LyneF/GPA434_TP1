@@ -23,7 +23,7 @@ GameEngine::GameEngine()
     : mBodyInsertionTrigger{}
     , mTime{ 0.0f }
     , mBody(1)
-    , mShuttlePosition(0.0f, 450.0f)
+    , mShuttlePosition(0.0f, 450.0f)            //ajouter ici un asteroid + missile??
     , mShuttleOrientation{}
     , mShuttleSize{ 1.0f }
 {

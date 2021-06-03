@@ -6,6 +6,7 @@
 #include "Body.h"
 #include "GameEngine.h"
 #include "Asteroid.h"
+#include "Polygon.h"
 
 
 class Shuttle
@@ -16,14 +17,24 @@ private:
 		mAngularThrustPower{ },
 		mLinearTraveledDistance{ },
 		mAngularTraveledDistance{ };
-
+	Vect2D mShuttlePosition;
+	float mShuttleOrientation;
+	float mShuttleSize;
+	
 public:
+	Shuttle();
+	~Shuttle() = default;
+
+
 	void control(const ezapp::Keyboard &keyboard, GameEngine &gameEngine);
 	void processTime(float elapsedTime);
-	void drawOnScreen(ezapp::Screen& screen);
+	void drawOnScreen(ezapp::Screen& screen, Vect2D mShuttlePosition, 
+	float mShuttleOrientation, float mShuttleSize);
 	bool isColliding(const Asteroid& asteroid);
 
+	
 };
 
 
 #endif // _SHUTTLE_H_
+
