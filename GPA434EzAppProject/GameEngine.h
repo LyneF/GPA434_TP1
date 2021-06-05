@@ -1,6 +1,7 @@
 #ifndef GAME_ENGINE_H
 #define GAME_ENGINE_H
 
+// Inclusion des bibliothèques
 #include <EzApp>
 #include "Color.h"
 #include "Vect2D.h"
@@ -10,6 +11,8 @@
 #include "GravityManager.h"
 #include <vector>
 
+// Classe permettant de gérer l'intégralité du jeu en regroupant tous les éléments 
+// qui doivent être affichés sur l'écran selon le temps du jeu
 class GameEngine
 {
 private:

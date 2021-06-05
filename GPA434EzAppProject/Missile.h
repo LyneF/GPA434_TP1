@@ -2,11 +2,12 @@
 #ifndef _MISSILE_H
 #define _MISSILE_H
 
+// Inclusion des bibliothèques
 #include <ezapp>
 #include "Body.h"
 #include "Asteroid.h"
 
-
+//Classe permettant de 
 class Missile
 {
 private:

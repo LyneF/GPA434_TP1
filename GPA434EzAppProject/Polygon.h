@@ -1,6 +1,7 @@
 #ifndef POLYGON_H
 #define POLYGON_H
 
+// Inclusion des bibliothèques
 #include <EzApp>
 #include <vector>
 #include "Vect2D.h"
@@ -9,6 +10,8 @@
 #include "Screen.h"
 #include "Random.h"
 
+
+//Classe permettant de 
 class Polygon
 {
 private:
@@ -20,11 +23,11 @@ public:
 	Polygon();
 	~Polygon() = default;
 
-	// Accesseurs
+	// ****************Accesseurs****************
 	size_t verticesCount() const;
 	std::vector<Vect2D> vertices() const;
 
-	// Mutateurs
+	// ****************Mutateurs****************
 	void setVerticesCount(size_t count);
 	void setVertex(size_t index, Vect2D const & vertex);
 	void setVertices(std::vector<Vect2D> const & vertices);
@@ -33,18 +36,18 @@ public:
 	void setBrushColor(unsigned color, float alpha = 1.0f);
 	void setPenColor(unsigned color, float alpha = 1.0f);
 
-	//Accesseurs/Mutateurs
+	//************Accesseurs/Mutateurs************
 	ShapeColors& shapeColors();
 	float& outlineWidth();
 
-	// Fonctions utilitaires
+	//************Fonctions utilitaires************
 	void buildSquare(float length);
 	void buildRectangle(float width, float height);
 	void buildRegular(size_t numberOfSides, float circumbscribedRadius);
 	void buildCircle(float radius, size_t resolution = 16);
 	void buildTriangle(float width, float height);
 
-	//Fonctions pour le jeu
+	//************Fonctions pour le jeu************
 	void buildVessel();
 	void buildAsteroid();
 	void buildMissile();

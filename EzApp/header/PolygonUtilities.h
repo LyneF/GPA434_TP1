@@ -2,7 +2,7 @@
 #ifndef POLYGON_UTILITIES_H
 #define POLYGON_UTILITIES_H
 
-
+// Inclusion des bibliothèques
 #include <vector>
 
 

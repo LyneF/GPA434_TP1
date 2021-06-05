@@ -95,6 +95,16 @@ void Color::randomize(bool randomizeAlpha)
 	mAlpha = randomizeAlpha ? (couleur)rand() / RAND_MAX : 1.0f;
 }
 
+Color Color::randomized(bool randomizeAlpha)
+{
+	//pas sure de comprendre
+	mRed = (couleur)rand() / RAND_MAX;
+	mGreen = (couleur)rand() / RAND_MAX;
+	mBlue = (couleur)rand() / RAND_MAX;
+	mAlpha = randomizeAlpha ? (couleur)rand() / RAND_MAX : 1.0f;
+
+}
+
 void Color::setScreenPen(ezapp::Screen& screen, float width)
 {
 	screen.setPen(mRed, mGreen, mBlue, mAlpha, width);

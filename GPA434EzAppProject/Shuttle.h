@@ -2,6 +2,7 @@
 #ifndef _SHUTTLE_H_
 #define _SHUTTLE_H_
 
+// Inclusion des bibliothèques
 #include <ezapp>
 #include "Body.h"
 #include "GameEngine.h"
@@ -9,6 +10,7 @@
 #include "Polygon.h"
 
 
+//Classe permettant de 
 class Shuttle
 {
 private:

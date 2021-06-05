@@ -2,11 +2,12 @@
 #ifndef GRAVITYMANAGER_H
 #define GRAVITYMANAGER_H
 
+// Inclusion des bibliothèques
 #include <EzApp>
 #include "Vect2D.h"
 #include "Body.h"
 
-
+//Classe permettant de gérer l'effet de gravité ajouté au jeu
 class GravityManager
 {
 private:
@@ -19,21 +20,27 @@ public:
 	GravityManager();
 	~GravityManager() = default;
 
-	// Accesseurs
+	// ****************Accesseurs****************
+	// Retourne la valeur de la force de la gravité
 	float gravityStrength() const;
+
+	//Retourne le VEct2D représentant la gravité
 	Vect2D gravity() const;
 
-	// Mutateurs
+
+
+	// ****************Mutateurs****************
 	void setGravityStrength(float strength);
 	void setShapeOrigin(Vect2D const& shapeOrigin);
 
-	//Accesseur/Mutateurs
+
+	//************Accesseur/Mutateurs***********
 	Body& body();
 
 	// Keyboard management
 	void update(ezapp::Keyboard const& keyboard);
 
-	// draw
+	// Dessiner à l'écran
 	void draw(ezapp::Screen& screen);
 };
 

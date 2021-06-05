@@ -2,11 +2,12 @@
 #ifndef SHAPECOLORS_H
 #define SHAPECOLORS_H
 
+// Inclusion des bibliothèques
 #include <EzApp>
 #include "Color.h"
 
 
-
+//Classe permettant de 
 class ShapeColors
 {
 private:
@@ -20,17 +21,17 @@ private:
 
 public:
 
-	//Constructeurs
+	//****************Constructeurs****************
 	ShapeColors();
 	~ShapeColors();
 
-	//Accesseurs
+	// ****************Accesseurs****************
 	Color getBrushColor();
 	Color getPenColor();
 	Color getFillColor();
 	Color getOutlineColor();
 
-	//Mutateurs
+	//****************Mutateurs****************
 	void setBrushColor(unsigned color, float alpha = 1.0f);
 	void setPenColor(unsigned color, float alpha = 1.0f);
 	void setPenWidth(float width);

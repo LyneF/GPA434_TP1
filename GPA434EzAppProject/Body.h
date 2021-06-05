@@ -21,12 +21,12 @@ public:
 	//Pour valider si un astéroide doit être enlevé du jeumPhysics
 	bool isToBeRemoved() const;
 
-	//Accesseurs
+	//****************Accesseurs****************
 	Polygon& polygon();
 	Physics& physics();
 	float& radius();
 
-	//Mutateurs
+	//****************Mutateurs****************
 	void reset();
 
 	void setBody(Physics const& body);

@@ -2,9 +2,12 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
 
+// Inclusion des bibliothèques
 #include <EzApp>
 #include "Vect2D.h"
 
+
+//Classe permettant de 
 class Physics
 {
 private:
@@ -24,7 +27,7 @@ public:
 	~Physics() = default;
 	void reset();
 
-	//Accesseurs
+	//****************Accesseurs****************
 	Vect2D getLinearPosition() const;
 	float getLinearPosition_X();
 	float getLinearPosition_Y();
@@ -38,7 +41,7 @@ public:
 	float bouncingCoeff() const;
 	float frictionCoeff() const;
 
-	//Mutateurs
+	//****************Mutateurs****************
 	void setPosition(Vect2D const& position);
 	void setVelocity(Vect2D const& velocity);
 	void setAcceleration(Vect2D const& acceleration);
@@ -49,7 +52,7 @@ public:
 
 	//void randomize(...);
 
-	// Fonctions utilitaires
+	// ************Fonctions utilitaires************
 	void processTime(float elapsedTime);
 
 	void manageBorder(float left, float top, float right, float bottom);
